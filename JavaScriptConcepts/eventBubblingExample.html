@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Event Bubbling Example</title>
+	<link rel="stylesheet" type="text/css" href="eventbubble.css">
+</head>
+<body>
+	<ul class="one" onclick="changeTextColor(this, event)">
+	  <ul class="two" onclick="changeTextColor(this, event)">
+	     <li class="three" onclick="changeTextColor(this, event)">
+	     	List 1
+	  	 </li>
+	  	 <li class="three" onclick="changeTextColor(this, event)">
+	  	 	List 2
+	  	 </li>
+	  	 <li class="three" onclick="changeTextColor(this, event)">
+	  	 	List 3
+	  	 </li>
+ 	  </ul>
+	</ul>
+
+
+</body>
+</html>
+<script >
+	function changeTextColor(_this, event){
+		event.stopPropagation();
+		_this.style.backgroundColor = 'Chartreuse';
+		alert("This: "+_this.className);
+		alert("Target: "+event.target.className);
+		_this.style.backgroundColor = '';
+	}
+</script>

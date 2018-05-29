@@ -1,0 +1,86 @@
+{
+	"topiclists": [{
+			"name": "JavaScript",
+			"topiclist": [{
+				"topicname": "ECMA",
+				"page": "views/javascript/ecma.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Progressive Pattern",
+				"page": "views/javascript/progressive.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "BOM/DOM",
+				"page": "views/javascript/dombom.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Scopes",
+				"page": "views/javascript/scopes.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Initialization",
+				"page": "views/javascript/initialization.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Method Chaning",
+				"page": "views/javascript/method-chaining.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Object Creation",
+				"page": "views/javascript/obj-creation.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Callback Function",
+				"page": "views/javascript/callback.html",
+				"breifdesc": ""
+			}, {
+				"topicname": "Anonymous Function",
+				"page": "views/javascript/anonymous.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Closure",
+				"page": "views/javascript/closure.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "Bubbling & Capturing",
+				"page": "views/javascript/bubblingcapturing.html",
+				"breifdesc": "",
+				"id": "js"
+			}, {
+				"topicname": "OOPs in JavaScript",
+				"page": "views/javascript/oops.html",
+				"breifdesc": "",
+				"id": "js"
+			}]
+
+		}, {
+			"name": "Other Topics",
+			"topiclist": [{
+				"topicname": "Delicious",
+				"page": "views/other/delicious.html",
+				"breifdesc": "",
+				"id": "ot"
+			}, {
+				"topicname": "Job Interview",
+				"page": "views/other/job-interview.html",
+				"breifdesc": "",
+				"id": "ot"
+			}, {
+				"topicname": "Blog",
+				"page": "views/other/blogs.html",
+				"breifdesc": "",
+				"id": "ot"
+			}]
+		}
+    ]
+
+}

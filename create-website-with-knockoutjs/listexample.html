@@ -1,0 +1,18 @@
+	<script type='text/javascript' src='model/listview/listviewmodel.js'></script>
+<div id="list-container">
+			
+	<div class="title"> List Example! </div>
+	<div class="list-form" id="add-form"> 
+		<form data-bind="submit:addItemToList">
+			<p>Add Item: </p><input type="text" data-bind="value:itemToAdd"/>
+			<button type="submit" data-bind="enable:itemToAdd().length > 0">Add</button>
+		</form>
+	</div>
+
+	<div class="list-data" id="item-list">
+		<p> Values: </p>
+		<select multiple data-bind="options:allItems, selectedOptions:selectedItems"></select>
+		<button data-bind="click:removeSelected, enable:selectedItems().length > 0"> Remove</button>
+		<button data-bind="click:sortItems, enable:allItems().length > 1">Sort</button>
+	</div>
+</div>

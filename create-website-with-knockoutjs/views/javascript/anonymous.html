@@ -1,0 +1,121 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <title>Anonymous Functions in JavaScript</title>
+  <meta name="JavaScript" content="Anonymous function in javascript">
+</head>
+
+<body>
+  <div>
+    <div>
+      <h2><strong>Anonymous Functions</strong></h2>
+    </div>
+  </div>
+  
+   <div class=" " style="padding-left: 10px; font-family: verdana;">
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Anonymous function is a function declared without any name. There are different way of declaring anonymous function.</font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	<div>
+      <font color="#333333" size="4"><strong>Normal Function:</strong></font>
+    </div>
+	<div>
+      <font color="#333333">Generally normal function get decalared as</font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	<div class="code-section">
+		
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">function</span> myFun(){
+	console.log(<span style="color: #CC3300">&quot;Normal Function with name!!&quot;</span>);
+}
+myFun();
+</pre></div>
+
+	 </div>
+	 <div>
+      &nbsp;
+    </div>
+	<div>
+      <font color="#333333" size="4"><strong>Referenced Anonymous Function:</strong></font>
+    </div>
+	<div>
+      <font color="#333333">An unnamed function referenced by variable is called Referenced Anonymous function. Given is an example of Referenced Anonymous function.</font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	<div class="code-section">
+		
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> myRefFun <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span> myFun(){
+	console.log(<span style="color: #CC3300">&quot;Referenced Function!!&quot;</span>);
+}
+myRefFun();
+</pre></div>
+
+	 </div>
+	 <div>
+      &nbsp;
+    </div>
+	
+	<div>
+      <font color="#333333">Anonymous function we mostly use as a parameter for <a href="#" id="back-to-call">callback function</a></font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	 
+	<div>
+      <font color="#333333">Another way of creating anonymous function and calling it on the same time is.</font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	<div class="code-section">
+		
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">(<span style="color: #006699; font-weight: bold">function</span> (message){
+	console.log(message); <span style="color: #0099FF; font-style: italic">// Hello</span>
+})(<span style="color: #CC3300">&quot;Hello&quot;</span>);
+	
+</pre></div>
+
+	
+	 </div>
+	 
+	  <div>
+      &nbsp;
+    </div>
+	
+	<div>
+      <font color="#333333">Pros and Cons of Anonymous function can be found from <a href="http://stackoverflow.com/questions/10273185/what-are-the-benefits-to-using-anonymous-functions-instead-of-named-functions-fo" target="_blank">stackoverflow</a></font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	<div>
+      <font color="#333333">Keep Reading and Keep learning.</font>
+    </div>
+	 <div>
+      &nbsp;
+    </div>
+	
+ </div>
+ <script>
+	$("#back-to-call").click(
+		function(e){
+			$("#container-example").load("views/javascript/callback.html"); 
+		}
+	);
+ </script>
+</body>
+</html>

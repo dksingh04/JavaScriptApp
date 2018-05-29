@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Closure in JavaScript</title>
+  <meta name="JavaScript" content="Closure in javascript">
+  <meta name="javascript" content="Closure in javascript">
+  <meta name="html" content="Closure in javascript">
+  <meta name="css" content="Closure in javascript">
+</head>
+
+<body>
+  <div class=" ">
+    <div>
+      <h2><strong>Understanding Closure in JavaScript</strong></h2>
+    </div>
+  </div>
+
+  <div class=" " style="padding-left: 10px; font-family: verdana;">
+    <div>
+       <font color="#333333"> </font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Closure is unlike a function and part of enclosing function which can captures variable defined locally in enclosing function. And these captured local variables are accessible even when the function is invoked outside of their scope.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">So closures functions are like storage (it remembers enclosing variables value even when function is invoked outside of their scope) for enclosing variables and functions which closure function can access later.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+
+	<div class="seprator"></div>
+	<div>
+      &nbsp;
+    </div>
+
+
+  <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Closure Examples
+    </div>
+
+    <div class="code-section panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#example1" data-toggle="tab">Example 1</a></li>
+        <li><a href="#example2" data-toggle="tab">Example 2 (Not Closure)</a></li>
+		<li><a href="#example3" data-toggle="tab">Example 3</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="example1" class="tab-pane fade in active">
+       
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">//Simple Example of Closure.</span>
+
+<span style="color: #006699; font-weight: bold">function</span> showName(firstName){
+	<span style="color: #006699; font-weight: bold">var</span> nameIntro <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;Your Name is &quot;</span>;
+
+	<span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">function</span> makeFullName(lastName){
+		<span style="color: #006699; font-weight: bold">return</span> nameIntro <span style="color: #555555">+</span> firstName <span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span> <span style="color: #555555">+</span> lastName;
+	}
+
+}
+
+<span style="color: #0099FF; font-style: italic">//call to closure functions can be done in following ways:</span>
+
+<span style="color: #0099FF; font-style: italic">//ShowName is returning reference to closure function.</span>
+<span style="color: #006699; font-weight: bold">var</span>  makeFullName <span style="color: #555555">=</span> showName(<span style="color: #CC3300">&quot;Deepak&quot;</span>); 
+
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">you will get ReferenceError: firstName name is not defined.</span>
+<span style="color: #0099FF; font-style: italic">since it is not accessible outside of the scope.</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+<span style="color: #0099FF; font-style: italic">//alert(firstName); //ReferenceError: firstName name is not defined.</span>
+
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic"> Now we are calling closure function by passing LastName </span>
+<span style="color: #0099FF; font-style: italic"> You can see here your closure function remembers firstName value passed earlier.</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+alert(makeFullName(<span style="color: #CC3300">&quot;Singh&quot;</span>));  <span style="color: #0099FF; font-style: italic">// Deepak Singh</span>
+
+alert(showName(<span style="color: #CC3300">&quot;Deepak&quot;</span>)(<span style="color: #CC3300">&quot;Singh&quot;</span>));  <span style="color: #0099FF; font-style: italic">// Deepak Singh</span>
+</pre></div>
+
+		  
+        </div>
+
+  <div id="example2" class="tab-pane fade">
+      <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">/** </span>
+<span style="color: #0099FF; font-style: italic">	Don&#39;t get confused, It is not closure.</span>
+<span style="color: #0099FF; font-style: italic">	makeFullName() function will act as an inner function here.</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+<span style="color: #006699; font-weight: bold">function</span> showName(firstName, lastName){
+	<span style="color: #006699; font-weight: bold">var</span> nameIntro <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;Your Name is &quot;</span>;
+
+	<span style="color: #006699; font-weight: bold">function</span> makeFullName(){
+		<span style="color: #006699; font-weight: bold">return</span> nameIntro <span style="color: #555555">+</span> firstName <span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span> <span style="color: #555555">+</span> lastName;
+	}
+	
+	<span style="color: #006699; font-weight: bold">return</span> makeFullName();
+}
+
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">you will get ReferenceError: makeFullName name is not defined., </span>
+<span style="color: #0099FF; font-style: italic">if you try to access &quot;makeFullName()&quot;. </span>
+<span style="color: #0099FF; font-style: italic">Because it will act as a inner function and not accessible outside of the outer function.</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+alert(makeFullName()); <span style="color: #0099FF; font-style: italic">//ReferenceError: makeFullName name is not defined.</span>
+alert(showName(<span style="color: #CC3300">&quot;Deepak&quot;</span>, <span style="color: #CC3300">&quot;Singh&quot;</span>)) <span style="color: #0099FF; font-style: italic">// Your Name is Deepak Singh.</span>
+</pre></div>
+
+ </div>
+ 
+ <div id="example3" class="tab-pane fade">
+        <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">function</span> doMathOperationOn(x){
+
+	<span style="color: #006699; font-weight: bold">return</span> {
+		add <span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(y){
+			<span style="color: #006699; font-weight: bold">return</span> x<span style="color: #555555">+</span>y;
+		},
+		subtract<span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(y){
+			<span style="color: #006699; font-weight: bold">return</span> x <span style="color: #555555">-</span> y;
+		}
+
+	};
+}
+
+<span style="color: #006699; font-weight: bold">var</span> mathOp <span style="color: #555555">=</span> doMathOperationOn(<span style="color: #FF6600">10</span>); <span style="color: #0099FF; font-style: italic">// You got the reference to Outer </span>
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">see the Magic of closure:). It remembers the value of x (which is 10). </span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+console.log(mathOp.add(<span style="color: #FF6600">2</span>)); <span style="color: #0099FF; font-style: italic">// Output:12 </span>
+console.log(mathOp.subtract(<span style="color: #FF6600">2</span>)); <span style="color: #0099FF; font-style: italic">// Output:8</span>
+</pre></div>
+
+ </div>
+ 
+      </div>
+    </div>
+  </div>
+  
+  <div>
+      &nbsp;
+    </div>
+
+	<div class="seprator"></div>
+<div>
+  &nbsp;
+</div>
+
+    <div>
+      <font color="#333333">Closure will help you to implement <b>Encapsulation</b> in JavaScript. Below is the example of Encapsulation in JavaScript by applying closure.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+
+  <div class=" " style="font-family: Meiryo UI;">
+    &nbsp;
+  </div>
+  
+   <div class="code-section">
+     
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">function</span> Person(){
+	 <span style="color: #006699; font-weight: bold">var</span> firstName;
+	 <span style="color: #006699; font-weight: bold">var</span> lastName;
+	<span style="color: #006699; font-weight: bold">return</span> {
+		
+		 setFirstName<span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(firstName){
+		 	<span style="color: #006699; font-weight: bold">this</span>.firstName <span style="color: #555555">=</span> firstName;
+		 },
+
+		 getFirstName<span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(){
+		 	<span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>.firstName;
+		 },
+
+		 setLastName<span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(lastName){
+		 	<span style="color: #006699; font-weight: bold">this</span>.lastName <span style="color: #555555">=</span> lastName;
+		 },
+		 getLastName <span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(){
+		 	<span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>.lastName;
+		 },
+
+		 toString<span style="color: #555555">:</span><span style="color: #006699; font-weight: bold">function</span>(){
+		 	<span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>.firstName<span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span><span style="color: #555555">+</span><span style="color: #006699; font-weight: bold">this</span>.lastName;
+		 }
+	};
+}
+
+<span style="color: #006699; font-weight: bold">var</span> p <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">new</span> Person();
+
+p.setFirstName(<span style="color: #CC3300">&quot;Deepak&quot;</span>);
+p.setLastName(<span style="color: #CC3300">&quot;Singh&quot;</span>);
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">	You can access firstName and lastName using setter and getter only</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+<span style="color: #0099FF; font-style: italic">//alert(firstName); ReferenceError: firstName is not defined</span>
+<span style="color: #0099FF; font-style: italic">//alert(lastName); ReferenceError: lastName is not defined</span>
+
+alert(p.getFirstName()); <span style="color: #0099FF; font-style: italic">// Deepak</span>
+alert(p.getLastName()); <span style="color: #0099FF; font-style: italic">// Singh</span>
+alert(p.toString()); <span style="color: #0099FF; font-style: italic">// Deepak Singh</span>
+</pre></div>
+
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+
+   <div>
+      <font color="#333333">Hope you have got fare understanding of Closure concept in JavaScript.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+
+
+   <div>
+      <font color="#333333">Keep Reading and Keep Learning.</font>
+    </div>
+<div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+
+
+  <div align="center" class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.one{
+	Width:250px;
+    border: 1px solid #f9f2ec;
+    background-color: Chocolate;
+}
+.two{
+	Width:200px;
+	border: 1px solid  #f9f2ec;
+	margin-top: 5px;
+	background-color: CadetBlue;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.three{
+	Width:125px;
+	Height: 30px;
+	background-color: Azure;
+    border: 1px solid  #f9f2ec;
+    list-style-type: none;
+    margin: 10px;
+}
+

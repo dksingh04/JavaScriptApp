@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="distribution" content="Global" />
+		<meta name="Robots" content="Index,Follow" />
+		<meta name="country" content="India" />
+		<meta property='og:locale' content='en_US'/>
+		<meta property='og:type' content='article'/>
+		<meta property='og:title' content='JavaScript'/>
+		<meta property='og:description' content='JavaScript (Closure, Initialization, Method chaining)'/>
+		<meta property='og:url' content='http://dklearnings.com'/>
+		<meta property='og:site_name' content='www.dklearnings.com'/>
+
+		<link rel="alternate" href="http://dklearnings.com/" hreflang="en" />
+		<link rel="author" href="https://plus.google.com/u/0/103080601787482816607"/>
+		<link rel="publisher" href="https://plus.google.com/u/0/103080601787482816607"/>
+		<script type='text/javascript' src='lib/angular.min.js'></script>
+    	<script type='text/javascript' src='lib/angular-route.js'></script>
+    	<script type='text/javascript' src='views/js/alltopics.js'></script>
+		<script type="text/html" id="headermenutemplate">
+				
+			<a href="home.html" >
+				<span data-bind="text:menu.title"> </span>
+			</a>
+				
+		</script>
+		<script type="text/html" id="headertemplate">
+			<h3 data-bind="text:headertitle"> </h3>	
+			<span id="header_menu" data-bind="template:{name:'headermenutemplate', foreach:menus, as:'menu'}">
+			</span>
+		</script>
+		
+		<script type="text/html" id="topicListTemplate">
+			 		   
+				<p class="menu-content-title" data-bind="click: function (){$('#container-example').load($data.page); callFun($index(), $data.id);} , attr: {'id': 'topic_'+$data.id+$index() }">
+					<strong>
+						
+						<span class="menu-text-middle" data-bind="text:topic.topicname""> </span> 
+					</strong>
+					
+					<small> <span data-bind="html:topic.breifdesc"> </span></small>
+				</p>
+				
+				<div class="menu-seprator"></div>
+				
+			
+		</script>
+		
+		<script type="text/html" id="techMenuTemplate">
+			<h4 data-bind="text:name"> </h4>
+			<div class="menu-content-override" data-bind="template:{name:'topicListTemplate', foreach:topiclist, as:'topic'}">
+			</div>
+		</script>
+	
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.1/jquery-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.1/jquery-ui.structure.min.css"/>
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.1/jquery-ui.theme.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/eventbubble.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+	</head>
+	
+	<body>
+    <div id="main-body">
+        <div id="body-content" class="container">
+            <div class="row">
+            <div class="col-lg-12">
+                <div id="container-header" class="header">
+                    <div class="header" data-bind="template:{name:'headertemplate', data:headerMessage}">
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+            
+            <div class="row">
+            <div class="col-lg-2">
+                <div id="menu-container"> 
+                    <div class="menu-content" id="menu-list" data-bind="template:{name:'techMenuTemplate', foreach: techlists, as: 'tech'}">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="col-lg-8">
+                <div class="mycontainer">
+                    <div id="container-example">
+                        <div ng-app="AllTopics">
+                            <div ng-controller="listtopicsCtrl">
+                                <ul ng-repeat="topic in articles">
+                                    <ul>
+                                        {{topic.name}}
+                                        <ul ng-repeat="info in topic.topiclist">
+                                            <li>
+                                                {{info.topicname}}	
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div id="advt-container">
+                            
+                </div>
+            </div>
+            </div>
+            
+            <div class="footer">&copy; Deepak Singh</div>
+        </div>
+    </div>
+	</body>
+	
+	    <script type='text/javascript' src='lib/knockout3.1.js'></script>
+        <script type='text/javascript' src='lib/knockout-mapping.js'></script>
+		<script type='text/javascript' src='lib/jquery1.js'></script>
+		<script type='text/javascript' src='jquery-ui-1.11.1/jquery-ui.min.js'></script>
+		<script type="text/javascript" src='lib/bootstrap.min.js'></script>
+         
+
+        
+		<!--<script type='text/javascript' src='lib/jquery.min.js'></script>-->
+
+
+	<script type='text/javascript' src='headermodel.js'></script>
+	<script type='text/javascript' src='js/menucontainerviewmodel.js'></script>
+
+	<script>
+		 $( document ).ready(function() {
+			// $( "#container-example" ).load("views/alltopics.html");
+			 });
+		   
+	       function callFun(index, id){
+                $(".menu-content-title").removeClass("active-link");
+                $(".menu-content-title").css({"background-color": "#00384d;"});
+                $(".menu-content-title").removeAttr("clicked");
+                $("#topic_"+id+index).removeAttr("style");
+                $("#topic_"+id+index).addClass("active-link");
+                $("#topic_"+id+index).attr("clicked", "true");
+               // alert(index);
+            }
+            
+          
+	</script>
+    
+   
+	
+</html>

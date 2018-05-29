@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type='text/javascript' src='angular.min.js'></script>
+    <script type='text/javascript' src='angular-route.js'></script>
+    <script type='text/javascript' src='alltopics.js'></script>
+</head>
+
+<body ng-app="AllTopics">
+    <div ng-controller="listtopicsCtrl">
+        <ul ng-repeat="topic in articles">
+        	<ul>
+        		{{topic.title}}
+        		<ul ng-repeat="info in topic.articles">
+        			<li>
+        				{{info.articleTitle}}	
+        			</li>
+        		</ul>
+        	</ul>
+        </ul>
+    </div>
+</body>
+   
+</body>
+</html>

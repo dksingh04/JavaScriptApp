@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <title>Method Chaining</title>
+  <meta name="JavaScript" content="Method Chaining concept">
+</head>
+
+<body>
+  <div>
+    <div>
+      <h2><strong>Method Chaining</strong></h2>
+    </div>
+  </div>
+
+  <p style="MARGIN-RIGHT: 0px; font-family: verdana;" dir="ltr" align="left"><font color="#333333" >Let's talk about Method Chaining concept.&nbsp;In <strong>Method Chaining</strong> you perform certain
+  action on Object/DOM element and then make the same reference (state of object) to be available where another action can be performed on the same object and so on.</font></p>
+
+  <p style="MARGIN-RIGHT: 0px; font-family: verdana;" dir="ltr" align="left"><font color="#333333" >That is you can fire multiple command on&nbsp;same object(s)/element(s) one after another.</font></p>
+
+  <p style="MARGIN-RIGHT: 0px; font-family: verdana;" dir="ltr" align="left"><font color="#333333" >If you have used JQuery, then you are definitely using method chaining feature in your project, because it
+  is heavily used in JQuery.</font></p>
+
+  <p style="MARGIN-RIGHT: 0px; font-family: verdana;" dir="ltr" align="left"><font color="#333333" >Chaining Method is also called <strong>Cascading</strong>, where you can call one method after another on
+  an object continuously.</font></p>
+
+  <p style="MARGIN-RIGHT: 0px; font-family: verdana;" dir="ltr" align="left"><font color="#333333" >for example:</font></p>
+
+ 
+ <!-- HTML generated using hilite.me --><div class="code-section" style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #CC3300">&quot;#elementId&quot;</span>).css(<span style="color: #CC3300">&quot;color&quot;</span>, <span style="color: #CC3300">&quot;green&quot;</span>).slideUp(<span style="color: #FF6600">2000</span>).slideDown(<span style="color: #FF6600">2000</span>);
+ 
+ or
+ 
+ <span style="color: #006699; font-weight: bold">var</span> str <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;My Name is Deepak&quot;</span>;
+ str.replace(<span style="color: #CC3300">&quot;Deepak&quot;</span>, <span style="color: #CC3300">&quot;Deepak Singh&quot;</span>).toUpperCase().substr(<span style="color: #FF6600">11</span>, str.length);    
+</pre></div>
+
+
+
+  <div class="seprator"></div>
+
+  <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Example
+    </div>
+
+    <div class="code-section panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#example" data-toggle="tab">Output</a></li>
+
+        <li><a href="#showcode" data-toggle="tab">Show Code</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="example" class="tab-pane fade in active">
+          <p id="elementId"><font font-family="verdana">After Click!!</font></p><input id="button" type="button" value="Click Me!">
+        </div>
+
+        <div id="showcode" class="tab-pane fade">
+          <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;html&gt;</span>
+ <span style="color: #330099; font-weight: bold">&lt;body&gt;</span>
+  <span style="color: #330099; font-weight: bold">&lt;p</span> <span style="color: #330099">id=</span><span style="color: #CC3300">&quot;elementId&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>After Click!!<span style="color: #330099; font-weight: bold">&lt;/p&gt;</span>
+  <span style="color: #330099; font-weight: bold">&lt;input</span> <span style="color: #330099">id=</span><span style="color: #CC3300">&quot;button&quot;</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;button&quot;</span> <span style="color: #330099">value=</span><span style="color: #CC3300">&quot;Click Me!&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+ <span style="color: #330099; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/html&gt;</span>
+
+<span style="color: #330099; font-weight: bold">&lt;script&gt;</span>
+  $(<span style="color: #336666">document</span>).ready(<span style="color: #006699; font-weight: bold">function</span>(){
+  $(<span style="color: #CC3300">&quot;#button&quot;</span>).click(<span style="color: #006699; font-weight: bold">function</span>(){
+  $(<span style="color: #CC3300">&quot;#elementId&quot;</span>).css(<span style="color: #CC3300">&quot;color&quot;</span>, <span style="color: #CC3300">&quot;green&quot;</span>)
+	 .slideUp(<span style="color: #FF6600">2000</span>)
+	 .slideDown(<span style="color: #FF6600">2000</span>);
+	});
+ });
+<span style="color: #330099; font-weight: bold">&lt;/script&gt;</span>
+</pre></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      How to create your own Method Chaining.
+    </div>
+
+    <div class="code-section panel-body">
+		<ul class="nav nav-tabs">
+        <li class="active"><a href="#cust-ex" data-toggle="tab">Output</a></li>
+
+        <li><a href="#st-jscode" data-toggle="tab">chainmethod.js</a></li>
+		<li><a href="#st-htm-code" data-toggle="tab">chainmethods.html</a></li>
+      </ul>
+	  <div class="tab-content">
+        <div id="cust-ex" class="tab-pane fade in active">
+			  <div class="members-wrapper">
+				<h2>Member: Robert sahu</h2><p>ID: 103</p><p>Email: test3@test3.com</p>
+			  </div>
+        </div>
+
+        <div id="st-jscode" class="tab-pane fade">
+       <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">// Student data store:</span>
+<span style="color: #006699; font-weight: bold">var</span> studentInfo <span style="color: #555555">=</span> [
+{firstName<span style="color: #555555">:</span><span style="color: #CC3300">&quot;Deepak&quot;</span>, lastName<span style="color: #555555">:</span><span style="color: #CC3300">&quot;Singh&quot;</span>, email<span style="color: #555555">:</span><span style="color: #CC3300">&quot;test@test.com&quot;</span>, id<span style="color: #555555">:</span><span style="color: #FF6600">102</span>},
+{firstName<span style="color: #555555">:</span><span style="color: #CC3300">&quot;Nihal&quot;</span>, lastName<span style="color: #555555">:</span><span style="color: #CC3300">&quot;Singh&quot;</span>, email<span style="color: #555555">:</span><span style="color: #CC3300">&quot;test2@test2.com&quot;</span>, id<span style="color: #555555">:</span><span style="color: #FF6600">103</span>},
+{firstName<span style="color: #555555">:</span><span style="color: #CC3300">&quot;Robert&quot;</span>, lastName<span style="color: #555555">:</span><span style="color: #CC3300">&quot;sahu&quot;</span>, email<span style="color: #555555">:</span><span style="color: #CC3300">&quot;test3@test3.com&quot;</span>, id<span style="color: #555555">:</span><span style="color: #FF6600">104</span>}
+];
+
+ 
+<span style="color: #0099FF; font-style: italic">/** </span>
+<span style="color: #0099FF; font-style: italic"> If you see in the code each JavaScript method is returning &#39;this&#39; </span>
+<span style="color: #0099FF; font-style: italic"> that means we are making the same object instance available for </span>
+<span style="color: #0099FF; font-style: italic"> other methods which in turn can apply method call on same object.</span>
+<span style="color: #0099FF; font-style: italic"> And this is how method chaining can be achieved.</span>
+<span style="color: #0099FF; font-style: italic">**/</span>
+<span style="color: #0099FF; font-style: italic">// Object with the chainable methods.</span>
+
+ <span style="color: #006699; font-weight: bold">var</span> studentController <span style="color: #555555">=</span> {
+
+  currentStudent<span style="color: #555555">:</span><span style="color: #CC3300">&quot;&quot;</span>,
+  findStudent<span style="color: #555555">:</span><span style="color: #006699; font-weight: bold">function</span> (email) {
+   <span style="color: #006699; font-weight: bold">var</span> arrayLength <span style="color: #555555">=</span> studentInfo.length, i;
+   <span style="color: #006699; font-weight: bold">for</span> (i <span style="color: #555555">=</span> arrayLength <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>; i <span style="color: #555555">&gt;=</span> <span style="color: #FF6600">0</span>; i<span style="color: #555555">--</span>) {
+    <span style="color: #006699; font-weight: bold">if</span> (studentInfo[i].email <span style="color: #555555">===</span> email) {
+     <span style="color: #006699; font-weight: bold">this</span>.currentStudent <span style="color: #555555">=</span> studentInfo[i];
+     <span style="color: #006699; font-weight: bold">break</span>;
+   }
+ }
+
+ <span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>;
+},
+formatName<span style="color: #555555">:</span><span style="color: #006699; font-weight: bold">function</span> () {
+ <span style="color: #006699; font-weight: bold">if</span> (<span style="color: #006699; font-weight: bold">this</span>.currentStudent) {
+  <span style="color: #006699; font-weight: bold">this</span>.currentStudent.fullName <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">this</span>.currentStudent.firstName <span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span> 
+		<span style="color: #555555">+</span> <span style="color: #006699; font-weight: bold">this</span>.currentStudent.lastName;
+}
+<span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>;
+
+},
+
+createLayout<span style="color: #555555">:</span><span style="color: #006699; font-weight: bold">function</span> () {
+ <span style="color: #006699; font-weight: bold">if</span> (<span style="color: #006699; font-weight: bold">this</span>.currentStudent) {
+  <span style="color: #006699; font-weight: bold">this</span>.currentStudent.viewData <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;&lt;h2&gt;Member: &quot;</span> <span style="color: #555555">+</span> <span style="color: #006699; font-weight: bold">this</span>.currentStudent.fullName 
+	<span style="color: #555555">+</span> <span style="color: #CC3300">&quot;&lt;/h2&gt;&quot;</span>  <span style="color: #555555">+</span> <span style="color: #CC3300">&quot;&lt;p&gt;ID: &quot;</span> <span style="color: #555555">+</span> <span style="color: #006699; font-weight: bold">this</span>.currentStudent.id 
+	<span style="color: #555555">+</span> <span style="color: #CC3300">&quot;&lt;/p&gt;&quot;</span> <span style="color: #555555">+</span> <span style="color: #CC3300">&quot;&lt;p&gt;Email: &quot;</span> <span style="color: #555555">+</span> <span style="color: #006699; font-weight: bold">this</span>.currentStudent.email <span style="color: #555555">+</span> <span style="color: #CC3300">&quot;&lt;/p&gt;&quot;</span>;
+}
+<span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>;
+},
+
+displayStudent<span style="color: #555555">:</span><span style="color: #006699; font-weight: bold">function</span> () {
+ <span style="color: #006699; font-weight: bold">if</span> (<span style="color: #555555">!</span><span style="color: #006699; font-weight: bold">this</span>.currentStudent) <span style="color: #006699; font-weight: bold">return</span>;
+
+ $(<span style="color: #CC3300">&quot;.members-wrapper&quot;</span>).append(<span style="color: #006699; font-weight: bold">this</span>.currentStudent.viewData);
+
+}
+};
+
+<span style="color: #0099FF; font-style: italic">// Now, use the chaninable methods with expressiveness:</span>
+studentController.findStudent(<span style="color: #CC3300">&quot;test3@test3.com&quot;</span>).formatName().createLayout().displayStudent();
+</pre></div>
+
+        </div>
+		<div id="st-htm-code" class="tab-pane fade in">
+	<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #009999">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;html&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;head&gt;</span>
+      <span style="color: #330099; font-weight: bold">&lt;script </span><span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://code.jquery.com/jquery-latest.js&quot;</span><span style="color: #330099; font-weight: bold">&gt;&lt;/script&gt;</span>
+      <span style="color: #330099; font-weight: bold">&lt;meta</span> <span style="color: #330099">charset=</span><span style="color: #CC3300">utf-8</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
+      <span style="color: #330099; font-weight: bold">&lt;title&gt;</span>Javascript chaining method<span style="color: #330099; font-weight: bold">&lt;/title&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;/head&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;body&gt;</span>
+      <span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;members-wrapper&quot;</span><span style="color: #330099; font-weight: bold">&gt;&lt;/div&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;/body&gt;</span>
+	  
+    <span style="color: #330099; font-weight: bold">&lt;script </span><span style="color: #330099">type=</span><span style="color: #CC3300">&quot;text/javascript&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;chainmethods.js&quot;</span><span style="color: #330099; font-weight: bold">&gt;&lt;/script&gt;</span>
+    
+<span style="color: #330099; font-weight: bold">&lt;/html&gt;</span>
+</pre></div>
+
+        </div>
+      </div>
+	</div>
+	
+  </div>
+   <script type="text/javascript">
+       $(document).ready(function(){
+	       $("#chain-code").hide();
+	       $("#button").click(function(){
+                $("#elementId").css("color", "green")
+            .slideUp(2000)
+            .slideDown(2000);
+        });
+	          
+	});
+	//userController.findUser("test2@test2.com").formatName().createLayout().displayUser();
+	
+</script>
+</body>
+</html>

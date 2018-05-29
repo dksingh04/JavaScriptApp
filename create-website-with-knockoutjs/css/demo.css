@@ -1,0 +1,239 @@
+/*custom font for text*/
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+
+
+.mycontainer {
+   
+    float: left;
+    min-height: 600px;
+    overflow: auto;
+    position: relative;
+   
+}
+.header {
+    /*fallback for browsers not supporting gradients*/
+	background: #003040; 
+	background: linear-gradient(#003040, #002535);
+    color: #ffffff;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    font-family: Nunito, arial, verdana;
+}
+.header > h3 {
+    display: inline-block;
+}
+.title {
+    background-color: #4d79ff;
+    color: #ffffff;
+    margin-left: 5px;
+    padding: 5px;
+}
+.ex-hello {
+    border: 1px solid #848484;
+    margin-left: 5px;
+    padding: 5px;
+}
+.declarative-bind {
+    border: 1px solid #848484;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+#container-hello {
+    border-color: #848484;
+    margin-top: 5px;
+    width: 90%;
+}
+#container-counter {
+    border-color: #848484;
+    margin-top: 5px;
+    padding-left: 5px;
+    width: 90%;
+}
+.container-content {
+    border-color: #848484;
+    margin-top: 5px;
+    padding-left: 5px;
+    width: 90%;
+}
+#list-container {
+    border-color: #848484;
+    margin-top: 5px;
+    padding-left: 5px;
+    width: 90%;
+}
+#add-form {
+    border: 1px solid #848484;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+#item-list {
+    border: 1px solid #848484;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+#menu-container {
+    float: left;
+    min-height: 600px;
+	min-width: 100%;
+   
+}
+#advt-container {
+    float: left;
+    min-height: 600px;
+  
+}
+.menu-content {
+    font-size: 10pt;
+    
+}
+.menu-content-title {
+    font-size: 14px;
+    width:100%;
+    margin-bottom:0px;
+    padding-left:2px;
+    cursor: pointer;
+    color: white;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 27px;
+	display: block;
+	padding: 0 15px;
+    background: #00384d;
+    
+    box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+	/*transition for smooth hover animation*/
+	transition: all 0.15s;
+    
+}
+
+.menu-text-middle{
+    vertical-align:sub;
+    width:100%;
+}
+.menu-content-override {
+    padding: 4px !important;
+}
+.menu-content h4 {
+    background-color: #4d79ff;
+    font-size: 11pt;
+}
+div #menu-container ul li {
+    list-style-type: desc;
+}
+.menu-title {
+    font-size: 11pt;
+    text-align: center;
+}
+.footer {
+    background: #003040; 
+	background: linear-gradient(#003040, #002535);
+    clear: both;
+    color: #ffffff;
+    font-size: 10pt;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    position: relative;
+    text-align: center;
+}
+#menu-list {
+    background: #004050;
+	width: 180px;
+	color: white;
+    font-size: 15px;
+    font-family: Nunito, arial, verdana;
+	/*Some cool shadow and glow effect*/
+	box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+}
+#menu-list h4{
+    line-height: 25px;
+	cursor: pointer;
+    color: white;
+	/*fallback for browsers not supporting gradients*/
+	background: #003040; 
+	background: linear-gradient(#003040, #002535);
+}
+
+#menu-list h4:hover {
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
+}
+#menu-list a:link {
+    color: #341a00;
+    text-decoration: none;
+}
+#menu-list a {
+    text-decoration: initial;
+}
+
+#header_menu {
+    list-style-type: none;
+    background: linear-gradient(#003040, #002535);
+    background: #003040;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: Nunito, arial, verdana;
+}
+
+#header_menu a {
+     
+	color: white;
+    float: right;
+   
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    margin-top: 15px; 
+    width: 5em;
+}
+#header_menu a:hover {
+    background-color: #00131a;
+    height: 45px;
+    
+}
+#header_menu {
+    display: inline;
+}
+
+div > h2{
+    text-align: center;
+}
+
+div > pre{
+    padding-left: 10px;
+}
+.seprator{
+	border: 1px solid  #f9f2ec;
+	width:100%;
+	height:2px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.menu-seprator{
+	border: 1px solid  #f9f2ec;
+	width:100%;
+	margin-top:1px;
+	margin-bottom:1px;
+}
+.code-section{
+	border: 1px solid  #f9f2ec;
+}
+#body-content{
+    background-color: #ffffff;
+    background: linear-gradient(#ffffff, #e6e6ff);
+    box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+}
+
+.active-link{
+    background-color:#00131a;
+}

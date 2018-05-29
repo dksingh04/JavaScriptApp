@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Bubbling up and Capturing phase in JavaScript</title>
+  <meta name="JavaScript" content="Bubbling up and Capturing phase">
+  <meta name="javascript" content="Bubbling up and Capturing phase">
+  <meta name="html" content="Bubbling up and Capturing phase">
+  <meta name="css" content="Bubbling up and Capturing phase">
+  
+</head>
+
+<body>
+  <div class=" ">
+    <div>
+      <h2><strong>Event Bubbling & Capturing</strong></h2>
+    </div>
+  </d
+
+  <div class=" " style="padding-left: 10px; font-family: verdana;">
+    <div>
+       <font color="#333333"> </font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Let's talk about interesting topic Event bubbling & capturing in JavaScript. If you never heard about this, then now you are going to get this right now right away ;)</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+	<div>
+		<font color="#333333" size="4"> <b>Event Bubbling up</b> </font>
+	</div>
+	<div>
+	  &nbsp;
+	</div>
+    <div>
+      <font color="#333333">DOM elements can be nested, and clicking on inner (child) element will invoke handler of parent element. This is called bubbling up.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+
+	<div class="seprator"></div>
+	<div>
+      &nbsp;
+    </div>
+
+
+  <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Event Bubble up Example 1
+    </div>
+
+    <div class="code-section panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#example1" data-toggle="tab">Bubbling up Example</a></li>
+        <li><a href="#ex-code" data-toggle="tab">Show code</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="example1" class="tab-pane fade in active">
+			<ul onclick="alert('&lt;ul&gt; clicked')">
+				<li onclick="alert('&lt;li&gt; clicked')"> List 1 </li>
+				<li onclick="alert('&lt;li&gt; clicked')"> List 2 </li>
+				<li onclick="alert('&lt;li&gt; clicked')"> List 3 </li>
+			</ul>
+        </div>
+
+  <div id="ex-code" class="tab-pane fade">
+          <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">/**
+As you can see here, even clicking on &quot;<span style="color: #330099; font-weight: bold">&lt;li&gt;</span>&quot; child element,
+parent element&#39;s &quot;<span style="color: #330099; font-weight: bold">&lt;ul&gt;</span>&quot; handler (i.e. onclick event get fired) 
+also getting called.
+*/
+<span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;alert(&#39;&lt;ul&gt; clicked&#39;)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;alert(&#39;&lt;li&gt; clicked&#39;)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span> List 1 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;alert(&#39;&lt;li&gt; clicked&#39;)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span> List 2 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;alert(&#39;&lt;li&gt; clicked&#39;)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span> List 3 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+</pre></div>
+
+ </div>
+ 
+ </div>
+</div>
+  </div>
+  
+  <div>
+      &nbsp;
+    </div>
+
+	<div class="seprator"></div>
+<div>
+  &nbsp;
+</div>
+
+    <div>
+      <font color="#333333">This is happening because an event bubbles up from nested (child) element and triggers the parent element handlers. You can think of event bubbling is like ripple effect when you drop an object in water (you can see ripple effect in below image). The event gets triggered from inner towards outer element.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+	
+	<p align="center" class=" " style="font-family: verdana;"><img src="../../images/ripple.jpg"></p>
+
+<div>
+  &nbsp;
+</div>
+
+    <div>
+      <font color="#333333">Let's visualize this with another example</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+	
+<div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Event Bubble up Example 2
+    </div>
+
+    <div class="code-section panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#example2" data-toggle="tab">Bubbling up Example 2</a></li>
+        <li><a href="#ex-code2" data-toggle="tab">Show code</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="example2" class="tab-pane fade in active">
+			<html>
+
+					<body>
+						<ul class="one" onclick="changeColor(this)">
+						  <ul class="two" onclick="changeColor(this)">
+							 <li class="three" onclick="changeColor(this)">
+								List 1
+							 </li>
+							 <li class="three" onclick="changeColor(this)">
+								List 2
+							 </li>
+							 <li class="three" onclick="changeColor(this)">
+								List 3
+							 </li>
+						  </ul>
+						</ul>
+
+
+					</body>
+			</html>
+		</div>
+
+  <div id="ex-code2" class="tab-pane fade">
+        <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">/**
+So when you click on inner li element, 
+the handler of outer elements are also getting called.
+And the order of execution will be like this if you click 
+on any of the li : three-&gt;two-&gt;one
+*/
+<span style="color: #330099; font-weight: bold">&lt;html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;head&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;title&gt;</span>Event Bubbling Example<span style="color: #330099; font-weight: bold">&lt;/title&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;link</span> <span style="color: #330099">rel=</span><span style="color: #CC3300">&quot;stylesheet&quot;</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;text/css&quot;</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;eventbubble.css&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/head&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;one&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColor(this)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+  <span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;two&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColor(this)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColor(this)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 1
+	<span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	 <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColor(this)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 2
+	 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	 <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColor(this)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 3
+	 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+   <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+ <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;script &gt;</span>
+<span style="color: #006699; font-weight: bold">function</span> changeColor(_this){
+	_this.style.backgroundColor <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Chartreuse&#39;</span>;
+	alert(_this.className);
+	_this.style.backgroundColor <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;&#39;</span>;
+}
+<span style="color: #330099; font-weight: bold">&lt;/script&gt;</span>
+</pre></div>
+
+ </div>
+ 
+ </div>
+</div>
+  </div>
+ 
+ <div>
+  &nbsp;
+</div>
+
+  <div class="seprator"></div>
+  <div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+  
+  <div>
+		<font color="#333333" size="4"> <b>Capturing</b> </font>
+  </div>
+   
+    <div>
+      &nbsp;
+    </div>
+
+
+  	<div>
+      <font color="#333333">So What is Capturing? The event first goes down is called capturing phase, and then bubble up.
+	  <br>
+	  As per the above example (Example 2) Execution order will be as below for Capturing and bubbling up.
+	  </font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+ 
+	<div>
+      <font color="#333333"><b>Capturing phase:</b> one->two->three
+	  <br>
+	   <b>Bubble up phase:</b> three->two->one
+	  </font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+ 
+	<div>
+      <font color="#333333">You can enable event capturing only by passing last parameter as <b>true (phase)</b> to <b>addEventListener</b> method (i.e <b> element.addEventListener(type, handler, phase);</b>)
+	  <br>
+	 
+	 <br>
+	 <b>phase = true : </b>handler is set on the capturing phase.
+	 <br>
+	<b> phase = false:</b> handler is set on bubbling phase.
+
+	  </font>
+    </div>
+	<div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+  
+  <div>
+		<font color="#333333" size="4"> <b>Target vs this</b> </font>
+  </div>
+  <div>
+  &nbsp;
+</div>
+
+	<div>
+      <font color="#333333"><b>target</b> is going to be the same originating element (i.e. the element where you have performed any event). 
+<b>this</b> is current element, it changes in context of current element. Let's understand this by example, I am taking the same example 2.
+
+	  </font>
+    </div>
+ 
+ <div>
+  &nbsp;
+</div>
+
+  <div class="seprator"></div>
+  
+  <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Target vs this Example
+    </div>
+	
+
+    <div class="code-section panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#example3" data-toggle="tab">Target vs this</a></li>
+        <li><a href="#ex-code3" data-toggle="tab">Show code</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="example3" class="tab-pane fade in active">
+			<html>
+
+					<body>
+						<ul class="one" onclick="changeColorWithEvnt(this, event)">
+						  <ul class="two" onclick="changeColorWithEvnt(this, event)">
+							 <li class="three" onclick="changeColorWithEvnt(this, event)">
+								List 1
+							 </li>
+							 <li class="three" onclick="changeColorWithEvnt(this, event)">
+								List 2
+							 </li>
+							 <li class="three" onclick="changeColorWithEvnt(this, event)">
+								List 3
+							 </li>
+						  </ul>
+						</ul>
+
+
+					</body>
+			</html>
+		</div>
+
+  <div id="ex-code3" class="tab-pane fade">
+         <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">/**
+So if you see here target element is not changing (it&#39;s consistent) and 
+this is changing as per the current element handler execution.
+*/
+<span style="color: #330099; font-weight: bold">&lt;html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;head&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;title&gt;</span>Event Bubbling Example<span style="color: #330099; font-weight: bold">&lt;/title&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;link</span> <span style="color: #330099">rel=</span><span style="color: #CC3300">&quot;stylesheet&quot;</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;text/css&quot;</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;eventbubble.css&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/head&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;one&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColorWithEvnt(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+  <span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;two&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColorWithEvnt(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColorWithEvnt(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 1
+	<span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	 <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColorWithEvnt(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 2
+	 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	 <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;changeColorWithEvnt(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 3
+	 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+   <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+ <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;script &gt;</span>
+<span style="color: #006699; font-weight: bold">function</span> changeColorWithEvnt(_this, event){
+	_this.style.backgroundColor <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Chartreuse&#39;</span>;
+	alert(<span style="color: #CC3300">&quot;This: &quot;</span><span style="color: #555555">+</span>_this.className);
+	alert(<span style="color: #CC3300">&quot;Target: &quot;</span><span style="color: #555555">+</span>event.target.className);
+	_this.style.backgroundColor <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;&#39;</span>;
+}
+<span style="color: #330099; font-weight: bold">&lt;/script&gt;</span>
+</pre></div>
+
+ </div>
+ 
+ </div>
+</div>
+  </div>
+  
+   <div>
+  &nbsp;
+</div>
+ <div class="seprator"></div>
+ <div>
+  &nbsp;
+</div>
+  
+  <div>
+		<font color="#333333" size="4"> <b>Stop Bubbling up</b> </font>
+  </div>
+  <div>
+  &nbsp;
+</div>
+
+	<div>
+      <font color="#333333"> You can stop event bubbling simply by calling <b>event.stopPropagation()</b>  method. For IE < 9 it is <b>event.cancelBubble = true</b>.
+	  <br>
+	  
+	  Let's  take the same example again.
+
+	  </font>
+    </div>
+ 
+ <div>
+  &nbsp;
+</div>
+
+  <div class="seprator"></div>
+  
+  <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Cancel Bubble up
+    </div>
+	
+
+    <div class="code-section panel-body">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#example4" data-toggle="tab">Target vs this</a></li>
+        <li><a href="#ex-code4" data-toggle="tab">Show code</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="example4" class="tab-pane fade in active">
+			<html>
+
+					<body>
+						<ul class="one" onclick="cancelBubbleup(this, event)">
+						  <ul class="two" onclick="cancelBubbleup(this, event)">
+							 <li class="three" onclick="cancelBubbleup(this, event)">
+								List 1
+							 </li>
+							 <li class="three" onclick="cancelBubbleup(this, event)">
+								List 2
+							 </li>
+							 <li class="three" onclick="cancelBubbleup(this, event)">
+								List 3
+							 </li>
+						  </ul>
+						</ul>
+
+
+					</body>
+			</html>
+		</div>
+
+  <div id="ex-code4" class="tab-pane fade">
+          <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">/**
+So if you see here target element is not changing (it&#39;s consistent) and 
+this is changing as per the current element handler execution.
+*/
+<span style="color: #330099; font-weight: bold">&lt;html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;head&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;title&gt;</span>Event Bubbling Example<span style="color: #330099; font-weight: bold">&lt;/title&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;link</span> <span style="color: #330099">rel=</span><span style="color: #CC3300">&quot;stylesheet&quot;</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;text/css&quot;</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;eventbubble.css&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/head&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;one&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;cancelBubbleup(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+  <span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;two&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;cancelBubbleup(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+	<span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;cancelBubbleup(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 1
+	<span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	 <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;cancelBubbleup(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 2
+	 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+	 <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;three&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;cancelBubbleup(this, event)&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+		List 3
+	 <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+   <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+ <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;script &gt;</span>
+<span style="color: #006699; font-weight: bold">function</span> cancelBubbleup(_this, event){
+	event.stopPropagation(); <span style="color: #0099FF; font-style: italic">// this cancel the bubble up event.</span>
+	_this.style.backgroundColor <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Chartreuse&#39;</span>;
+	alert(<span style="color: #CC3300">&quot;This: &quot;</span><span style="color: #555555">+</span>_this.className);
+	alert(<span style="color: #CC3300">&quot;Target: &quot;</span><span style="color: #555555">+</span>event.target.className);
+	_this.style.backgroundColor <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;&#39;</span>;
+}
+<span style="color: #330099; font-weight: bold">&lt;/script&gt;</span>
+</pre></div>
+
+ </div>
+ 
+ </div>
+</div>
+  </div>
+   <div>
+      &nbsp;
+    </div>
+    
+
+	<div class="seprator"></div>
+   <div>
+      &nbsp;
+    </div>
+   <div>
+      <font color="#333333">Hope you have got fare understanding of Event Bubbling and Capturing in JavaScript.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+   <div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+   
+   <div>
+      <font color="#333333">Keep Reading and Keep Learning.</font>
+    </div>
+  
+   <div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+
+
+  <div align="center" class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+ </div>
+ 
+ <script >
+	function changeColor(_this){
+		_this.style.backgroundColor = 'Chartreuse';
+		alert(_this.className);
+		_this.style.backgroundColor = '';
+	}
+	
+	function changeColorWithEvnt(_this, event){
+		_this.style.backgroundColor = 'Chartreuse';
+		alert("This: "+_this.className);
+		alert("Target: "+event.target.className);
+		_this.style.backgroundColor = '';
+	}
+	function cancelBubbleup(_this, event){
+	event.stopPropagation();
+	_this.style.backgroundColor = 'Chartreuse';
+	alert("This: "+_this.className);
+	alert("Target: "+event.target.className);
+	_this.style.backgroundColor = '';
+}
+</script>
+</body>
+</html>

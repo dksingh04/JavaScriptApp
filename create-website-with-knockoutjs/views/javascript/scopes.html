@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Variables scope in JavaScript</title>
+  <meta name="JavaScript" content="scopes of variables in JavaScript">
+  <meta name="javascript" content="scopes of variables in JavaScript">
+  <meta name="html" content="scopes of variables in JavaScript">
+  <meta name="css" content="scopes of variables in JavaScript">
+</head>
+
+<body>
+  <div class=" ">
+    <div>
+      <h2><strong>Understanding variables scope in JavaScript</strong></h2>
+    </div>
+  </div>
+
+  <div class=" " style="padding-left: 10px; font-family: verdana;">
+    <div>
+       <font color="#333333"> </font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Let's understand variables scope in JavaScript and how does it work.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Scope is basically used for managing the visibility and accessibility of variables from different part of program.</font>
+    </div>
+	 <div>
+      &nbsp;
+    </div>
+	<div class=" ">
+    <div>
+      <h4><strong>Global vs Local Scope</strong></h2>
+    </div>
+  </div>
+	<div>
+      &nbsp;
+    </div>
+	
+	<div class="code-section">
+     <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> myglobalscope <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;global scope&quot;</span>;
+
+<span style="color: #006699; font-weight: bold">function</span> localScopeFun(){
+	localScope<span style="color: #555555">=</span><span style="color: #CC3300">&quot;local scope&quot;</span>;
+	console.log(localScope); <span style="color: #0099FF; font-style: italic">// local scope</span>
+	console.log(myglobalscope); <span style="color: #0099FF; font-style: italic">// global scope</span>
+}
+
+localScopeFun();
+console.log(localScope); <span style="color: #0099FF; font-style: italic">// local scope</span>
+console.log(myglobalscope); <span style="color: #0099FF; font-style: italic">// global scope</span>
+</pre></div>
+
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">So in the above example localScope variable declared without <b>'var'</b> keyword will be treated as a global variable. So be careful while creating any variable inside function and you want to refer those variable locally only. Use var keyword to keep the variable scope limited to that function.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">And in the same code if we use <b>'var'</b> keyword for <b>'localScope'</b> variable then accessing that variable outside of the function will raise javascript error.
+	 </font>
+    </div>
+	
+	 <div>
+      &nbsp;
+    </div>
+
+<div class="code-section">
+    <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> myglobalscope <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;global scope&quot;</span>;
+
+<span style="color: #006699; font-weight: bold">function</span> localScopeFun(){
+	<span style="color: #006699; font-weight: bold">var</span> localScope<span style="color: #555555">=</span><span style="color: #CC3300">&quot;local scope&quot;</span>;
+	console.log(localScope); <span style="color: #0099FF; font-style: italic">// local scope</span>
+	console.log(myglobalscope); <span style="color: #0099FF; font-style: italic">// global scope</span>
+}
+
+localScopeFun();
+console.log(localScope); <span style="color: #0099FF; font-style: italic">// ReferenceError: localScope is not defined</span>
+console.log(myglobalscope); <span style="color: #0099FF; font-style: italic">// and due to error this statement will not execute. </span>
+</pre></div>
+
+</div>
+
+    <div>
+      &nbsp;
+    </div>
+	<div class=" ">
+    <div>
+      <h4><strong>Block level Scope</strong></h2>
+    </div>
+  </div>
+   <div>
+      &nbsp;
+    </div>
+	 <div>
+
+	 <font color="#333333"> In JavaScript any variable declared with var keyword do not have block level scope like other programming language (C, C++, Java etc.). Let's understand this by example.</font>
+    </div>
+	<div>
+      &nbsp;
+    </div>
+	<div class="code-section">
+		
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> x <span style="color: #555555">=</span><span style="color: #FF6600">2</span>;
+{
+   <span style="color: #006699; font-weight: bold">var</span> x  <span style="color: #555555">=</span> <span style="color: #FF6600">3</span>;
+   console.log(x); <span style="color: #0099FF; font-style: italic">// 3</span>
+}
+
+console.log(x); <span style="color: #0099FF; font-style: italic">//3</span>
+</pre></div>
+
+
+	
+	</div>
+<div>
+      &nbsp;
+</div>
+ <div>
+	 <font color="#333333"> You are seeing the output of variable x out of the block is 3, because variable x declared within the block have the same scope as the variable x declared outside of the block.</font>
+ </div>
+
+ <div>
+      &nbsp;
+</div>
+ <div>
+	 <font color="#333333"> <b>Note**:</b> ECMAScript version 6 support block level scope by using <b>'let'</b> keyword.
+</font>
+ </div>
+ <div>
+      &nbsp;
+</div>
+
+<div  class="code-section">
+	
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">let</span> x <span style="color: #555555">=</span><span style="color: #FF6600">2</span>;
+{
+  <span style="color: #006699; font-weight: bold">let</span> x  <span style="color: #555555">=</span> <span style="color: #FF6600">3</span>;
+  console.log(x); <span style="color: #0099FF; font-style: italic">// 3</span>
+}
+
+console.log(x); <span style="color: #0099FF; font-style: italic">//2</span>
+</pre></div>
+
+	</div>
+	
+<div class=" ">
+    <div>
+      <h4><strong>Scopes in For and While loop</strong></h2>
+    </div>
+  </div>
+<div>
+  &nbsp;
+</div>
+
+<div>
+	 <font color="#333333"> Any variable part of for or while loop survived after a loop and again this is because of their scope is function not block.</font>
+</div>
+
+<div>
+  &nbsp;
+</div>
+
+<div  class="code-section">
+		
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">for</span>(<span style="color: #006699; font-weight: bold">var</span> i<span style="color: #555555">=</span><span style="color: #FF6600">0</span>; i<span style="color: #555555">&lt;</span><span style="color: #FF6600">5</span>; i<span style="color: #555555">++</span>) { }
+
+alert(i); <span style="color: #0099FF; font-style: italic">// 5;</span>
+
+<span style="color: #006699; font-weight: bold">while</span>(i <span style="color: #555555">&lt;</span> <span style="color: #FF6600">10</span>){
+	i<span style="color: #555555">++</span>;
+}
+
+alert(i); <span style="color: #0099FF; font-style: italic">//10;</span>
+</pre></div>
+
+
+	
+	</div>
+ 
+   <div>
+      <font color="#333333">Hope this is useful and have given you an understanding of scopes in JavaScript.</font>
+    </div>
+	<div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+	<div  class=" " style="font-family: verdana;">
+     Keep Reading and Keep learning.
+  </div>
+<div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+
+
+  <div  class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+ 
+ 
+ </div>
+  
+</body>
+</html>

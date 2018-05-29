@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html ng-app="buildStatusApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Build Status</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="build-style.css">
+</head>
+
+<body ng-controller="buildStatusController">
+
+	<div class="container">
+			<div class="panel panel-default">
+				<div class="row">
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<b>Changelist / Build</b>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<b>Owner</b>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<b>Time Started</b>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<b>State</b>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<b>Metrics</b>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<b>Build</b>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<b>Unit Test</b>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<b>Functional Test</b>
+						</div>
+				</div>
+				
+				  <div class="panel panel-warning">
+		   			<div class="row">
+		   				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			   				<img src="images/computer-icon.png"><span class="text-gray text-margin-icon">Tenrox-R1_1235</span>
+			   			</div>
+			   			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<span class="text-gray"><b>Pending</b></span>
+						</div>
+
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+		   			</div>	   	
+				 </div>
+				  <div class="panel panel-primary">
+		   			<div class="row">
+		   				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			   				<img src="images/build-running.png"></span><span class="text-success text-margin-icon">432462</span>
+			   			</div>
+			   			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+			   				<span class="text-success text-margin-icon">jtuck</span>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<span class="text-success text-margin-icon"><b>4/18/2014 12:12 pm</b></span>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<span class="text-success"><b>Running</b></span>
+						</div>
+
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+		   			</div>	   	
+				 </div>
+				
+				 <div class="panel panel-danger">
+		   			<div class="row">
+		   				<a href="#" ng-click="drawUnitTestPieChart('12'); drawFuncTestPieChart(12);">
+			   				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" data-toggle="collapse" data-target="#reject-details">
+				   				<img src="images/build-rejected.png"></span><span class="text-rejected text-margin-icon"><u>432461</u></span>
+				   			</div>
+			   			</a>
+			   			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+			   				<span class="text-rejected text-margin-icon">samy</span>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<span class="text-rejected text-margin-icon">4/18/2014 10:53am</span>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<span class="text-rejected"><b>Rejected</b></span>
+						</div>
+
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  12">
+							  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  12">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  12">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  12">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+		   			</div>	
+
+		   			<div id = "reject-details" class = "panel-collapse collapse">
+		   			  <div style="width:100%; height:250px">
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Metrics</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uparrow-img">
+							  			<div class="text-in-arrow">64</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 downarrow-img img-right-align">
+							  			<div class="text-in-arrow">53</div>
+							  		</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-uparrow-text">Test</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-uparrow-text">Maintainability</div>
+							  		</div>
+							  	</div>
+
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 rightarrow-img">
+							  			<div class="text-in-right-arrow">64</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 rightarrow-img img-right-align">
+							  			<div class="text-in-right-arrow">72</div>
+							  		</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-rightarrow-text">Security</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-right-img-arrow-text">Workmanship</div>
+							  		</div>
+							  	</div>
+
+
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Build</b></span>
+							  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 build-img">
+							  		
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 build-img-text-bottom">
+							  			10:46am - 4/17/2014
+							  		</div>
+							  	</div>
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Unit Test</b></span>
+							  		<div class="row">
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							  			<canvas id="unit-test-piechart12" width="100" height="100" style="margin-left:10px;"> </canvas> 
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-pie-unit-test-percent-large">
+							  			<span>73%</span>			
+							  		</div>
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-pie-unit-test-percent-small">
+							  			tests passed
+							  		</div>
+							  	</div>
+							  	
+							  	<div class="row tests-pie-progress-bar">
+							  			<div style="width:76%; height:100%; background-color:#5cd65c;" ><span class="text-pie-progress-bar-large">76% <span class="text-pie-unit-test-percent-small">code covered</span></span></div>
+							  	</div>
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Functional Test</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							  			<canvas id="func-piechart12" width="100" height="100" style="margin-left:10px;"> </canvas> 
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-pie-func-test-percent-large">
+							  			<span>68%</span>			
+							  		</div>
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-pie-unit-test-percent-small">
+							  			tests passed
+							  		</div>
+							  	</div>
+							  	
+							  	<div class="row tests-pie-progress-bar">
+							  			<div style="width:23%; height:100%; background-color:#5cd65c;float:left;" ></div>
+							  			<div style="width:72%; height:100%;float:left;"><span class="text-func-pie-progress-bar-large">23% <span class="text-pie-unit-test-percent-small">code covered</span></span></div>
+							  	</div>
+						  	</div>
+						  	<div class="info-blocks">
+						  		<div style="text-align:center; font-size:15px; color:black;"> <b>Result: </b></div>
+						  		<div class="text-reject-details">
+						  			<span>Change Regected</span>
+						  			<br>
+						  			<span class="text-reject-details-large">Metrics Reduction</span>
+						  		</div>
+							  	<div style="text-align:center;"><button type="button" class="btn btn-primary">Find Issue</button></div>
+						  </div>
+					</div>	
+		   			</div>   	
+				 </div>
+
+				  <div class="panel panel-success">
+		   			<div class="row">
+		   				<a href="#" ng-click="drawUnitTestPieChart('13'); drawFuncTestPieChart(13);">
+			   				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" data-toggle="collapse" data-target="#complete-details">
+				   				<img src="images/build-completed.png"></span><span class="text-completed text-margin-icon"><b><u>Tenrox-R1_1234</u></b></span>
+				   			</div>	
+			   			</a>
+			   			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<span class="text-completed"><b>4/17/2014 9:42am</b></span>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<span class="text-completed"><b>Complete</b></span>
+						</div>
+
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  13">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  13">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  13">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  13">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+		   			</div>
+		   			<div id ="complete-details" class ="panel-collapse collapse">
+						   <div style="width:100%; height:250px">
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Metrics</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uparrow-img">
+							  			<div class="text-in-arrow">64</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uparrow-img img-right-align">
+							  			<div class="text-in-arrow">53</div>
+							  		</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-uparrow-text">Test</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-uparrow-text">Maintainability</div>
+							  		</div>
+							  	</div>
+
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 rightarrow-img">
+							  			<div class="text-in-right-arrow">64</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 rightarrow-img img-right-align">
+							  			<div class="text-in-right-arrow">72</div>
+							  		</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-rightarrow-text">Security</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-right-img-arrow-text">Workmanship</div>
+							  		</div>
+							  	</div>
+
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Build</b></span>
+							  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 build-img">
+							  		
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 build-img-text-bottom">
+							  			10:46am - 4/17/2014
+							  		</div>
+							  	</div>
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Unit Test</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							  			<canvas id="unit-test-piechart13" width="100" height="100" style="margin-left:10px;"> </canvas> 
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-pie-unit-test-percent-large">
+							  			<span>73%</span>			
+							  		</div>
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-pie-unit-test-percent-small">
+							  			tests passed
+							  		</div>
+							  	</div>
+							  	
+							  	<div class="row tests-pie-progress-bar">
+							  			<div style="width:76%; height:100%; background-color:#5cd65c;" ><span class="text-pie-progress-bar-large">76% <span class="text-pie-unit-test-percent-small">code covered</span></span></div>
+							  	</div>
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Functional Test</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							  			<canvas id="func-piechart13" width="100" height="100" style="margin-left:10px;"> </canvas> 
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-pie-func-test-percent-large">
+							  			<span>68%</span>			
+							  		</div>
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-pie-unit-test-percent-small">
+							  			tests passed
+							  		</div>
+							  	</div>
+							  	
+							  	<div class="row tests-pie-progress-bar">
+							  			<div style="width:23%; height:100%; background-color:#5cd65c;float:left;" ></div>
+							  			<div style="width:72%; height:100%;float:left;"><span class="text-func-pie-progress-bar-large">23% <span class="text-pie-unit-test-percent-small">code covered</span></span></div>
+							  	</div>
+						  	</div>
+						  	<div class="info-blocks">
+						  		<div style="text-align:center; font-size:15px; color:black;"> <b>Result: </b></div>
+						  		<div class="text-completed-details-large">
+						  			<span>Complete</span>
+						  		</div>
+							  	<div style="text-align:center;"><button type="button" class="btn btn-primary">		Deploy</button> to:
+							  	  <div class="btn-group">
+							  	  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							  	    Production <span class="caret"></span>
+							  	  </button>
+							  	  <ul class="dropdown-menu">
+							  	      <li><a href="#">Production</a></li>
+							  	      <li role="separator" class="divider"></li>
+							  	      <li><a href="#">QA</a></li>
+							  	      <li role="separator" class="divider"></li>
+							  	      <li><a href="#">Development</a></li>
+							  	    </ul>
+							  	 </div> 
+							  	</div>
+							  	
+						  	</div>
+					</div>	
+					</div> 	   	
+				 </div>
+				 <div class="panel panel-danger">
+		   			<div class="row">
+		   				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			   				<img src="images/build-rejected.png"></span><span class="text-rejected text-margin-icon">432460</span>
+			   			</div>
+			   			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+			   				<span class="text-rejected">samy</span>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<span class="text-rejected">4/17/2014 7:51am</span>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<span class="text-rejected"><b>Rejected</b></span>
+						</div>
+
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							  </div>
+							</div>
+						</div>
+		   			</div>	   	
+				 </div>
+
+				  <div class="panel panel-success">
+		   			<div class="row">
+		   				<a href="#" ng-click="drawUnitTestPieChart('14'); drawFuncTestPieChart(14);">
+		   				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" data-toggle="collapse" data-target="#accept-details">
+			   				<img src="images/build-accepted.png"></span><span class="text-completed text-margin-icon"><u>432459</u></span>
+			   			</div>
+			   			</a>
+			   			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+			   				<span class="text-completed">samy</span>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<span class="text-completed">4/16/2014 6:43am</span>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<span class="text-completed"><b>Accepted</b></span>
+						</div>
+
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  14">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  14">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress  14">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="progress 14">
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+							  </div>
+							</div>
+						</div>
+		   			</div>
+		   			<div id ="accept-details" class ="panel-collapse collapse">
+						  <div style="width:100%; height:250px">
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Metrics</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uparrow-img">
+							  			<div class="text-in-arrow">64</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uparrow-img img-right-align">
+							  			<div class="text-in-arrow">53</div>
+							  		</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-uparrow-text">Test</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-uparrow-text">Maintainability</div>
+							  		</div>
+							  	</div>
+
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 rightarrow-img">
+							  			<div class="text-in-right-arrow">64</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 rightarrow-img img-right-align">
+							  			<div class="text-in-right-arrow">72</div>
+							  		</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-rightarrow-text">Security</div>
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							  			<div class="img-title-right-img-arrow-text">Workmanship</div>
+							  		</div>
+							  	</div>
+
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Build</b></span>
+							  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 build-img">
+							  		
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 build-img-text-bottom">
+							  			10:46am - 4/17/2014
+							  		</div>
+							  	</div>
+							  	
+						  	</div>
+						  	<div class="accept-blocks">
+							  	
+							  	<span class="text-completed-details"><b>Unit Test</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							  			<canvas id="unit-test-piechart14" width="100" height="100" style="margin-left:10px;"> </canvas> 
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-pie-unit-test-percent-large">
+							  			<span>73%</span>			
+							  		</div>
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-pie-unit-test-percent-small">
+							  			tests passed
+							  		</div>
+							  	</div>
+							  	
+							  	<div class="row tests-pie-progress-bar">
+							  			<div style="width:76%; height:100%; background-color:#5cd65c;" ><span class="text-pie-progress-bar-large">76% <span class="text-pie-unit-test-percent-small">code covered</span></span></div>
+							  	</div>
+						  	</div>
+						  	<div class="accept-blocks">
+							  	<span class="text-completed-details"><b>Functional Test</b></span>
+							  	<div class="row">
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							  			<canvas id="func-piechart14" width="100" height="100" style="margin-left:10px;"> </canvas> 
+							  		</div>
+							  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-pie-func-test-percent-large">
+							  			<span>68%</span>			
+							  		</div>
+							  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-pie-unit-test-percent-small">
+							  			tests passed
+							  		</div>
+							  	</div>
+							  	
+							  	<div class="row tests-pie-progress-bar">
+							  			<div style="width:23%; height:100%; background-color:#5cd65c;float:left;" ></div>
+							  			<div style="width:72%; height:100%;float:left;"><span class="text-func-pie-progress-bar-large">23% <span class="text-pie-unit-test-percent-small">code covered</span></span></div>
+							  	</div>
+						  	</div>
+						  	<div class="info-blocks">
+						  		<div style="text-align:center; font-size:15px; color:black;"> <b>Result: </b></div>
+						  		<div class="text-accept-details">
+						  			<span>Change Accepted</span>
+						  			<br>
+						  			<span class="text-accept-details-large">Auto Merged</span>
+						  		</div>
+							  	<div style="text-align:center;"><button type="button" class="btn btn-primary">Merged Build</button></div>
+						  </div>
+					</div>	   	
+				 </div>
+			</div>
+			 
+	</div>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="angular-min.js"></script>
+<script type="text/javascript" src="maincontroller.js"></script>
+</body>
+</html>

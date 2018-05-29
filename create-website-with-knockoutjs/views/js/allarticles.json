@@ -1,0 +1,86 @@
+{
+	"topiclist": [{
+			"title": "JavaScript",
+			"articles": [{
+				"articleTitle": "ECMA",
+				"articlePage": "views/javascript/ecma.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Progressive Pattern",
+				"articlePage": "views/javascript/progressive.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "BOM/DOM",
+				"articlePage": "views/javascript/dombom.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Scopes",
+				"articlePage": "views/javascript/scopes.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Initialization",
+				"articlePage": "views/javascript/initialization.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Method Chaning",
+				"articlePage": "views/javascript/method-chaining.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Object Creation",
+				"articlePage": "views/javascript/obj-creation.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Callback Function",
+				"articlePage": "views/javascript/callback.html",
+				"articleDesc": ""
+			}, {
+				"articleTitle": "Anonymous Function",
+				"articlePage": "views/javascript/anonymous.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Closure",
+				"articlePage": "views/javascript/closure.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "Bubbling & Capturing",
+				"articlePage": "views/javascript/bubblingcapturing.html",
+				"articleDesc": "",
+				"id": "js"
+			}, {
+				"articleTitle": "OOPs in JavaScript",
+				"articlePage": "views/javascript/oops.html",
+				"articleDesc": "",
+				"id": "js"
+			}]
+
+		}, {
+			"title": "Other Topics",
+			"articles": [{
+				"articleTitle": "Delicious",
+				"articlePage": "views/other/delicious.html",
+				"articleDesc": "",
+				"id": "ot"
+			}, {
+				"articleTitle": "Job Interview",
+				"articlePage": "views/other/job-interview.html",
+				"articleDesc": "",
+				"id": "ot"
+			}, {
+				"articleTitle": "Blog",
+				"articlePage": "views/other/blogs.html",
+				"articleDesc": "",
+				"id": "ot"
+			}]
+		}
+    ]
+
+}

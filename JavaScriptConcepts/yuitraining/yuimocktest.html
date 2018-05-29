@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Mock Test cases in YUI</title>
+</head>
+<body>
+	<div id="log" class="yui3-skin-sam"></div>
+
+	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+	<script type="text/javascript">
+		YUI().use('test', 'test-console', function (Y) {
+			//code being tested
+			function logToServer(message, xhr){
+			    xhr.open("get", "/log.php?msg=" + encodeURIComponent(message), true);
+			    xhr.send(null);
+			}
+
+			//test case for testing the above function
+			var testCaseOfMockObj = new Y.Test.Case({
+
+			    name: "logToServer Tests",
+
+			    testPassingDataToXhr : function () {
+			        var mockXhr = Y.Mock();
+
+			        //You expect the open() method to be called with the given arguments
+			        Y.Mock.expect(mockXhr, {
+			            method: "open",
+			            args: ["get", "/log.php?msg=hi", true]
+			        });
+
+			        //You expect the send() method to be called with the given arguments
+			        Y.Mock.expect(mockXhr, {
+			            method: "send",
+			            args: [null]
+			        });
+
+			        //now call the function
+			        logToServer("hi", mockXhr);
+
+			        //verify the expectations were met
+			        Y.Mock.verify(mockXhr);
+			    }
+			});
+
+			new Y.Test.Console().render('#log');
+			Y.Test.Runner.add(testCaseOfMockObj);
+			Y.Test.Runner.run();
+		});
+	</script>
+</body>
+</html>

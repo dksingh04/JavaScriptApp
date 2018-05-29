@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Understanding Callback Function</title>
+  <meta name="JavaScript" content="callback function">
+  <meta name="javascript" content="callback function">
+  <meta name="html" content="callback function">
+  <meta name="css" content="callback function">
+</head>
+
+<body>
+  <div class=" ">
+    <div>
+      <h2><strong>Understanding Callback Function</strong></h2>
+    </div>
+  </div>
+
+  <div class=" " style="padding-left: 10px; font-family: verdana;">
+    <div>
+       <font color="#333333">When we say callback, we always say okay, this is asynchronous call and it's not going to produce the result immediately but it will take some time to produce the result.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Usually callback mechanism used in case of expensive operation e.g. downloading file or performing I/O operations.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Generally callback in JavaScript is a function that is passed to another function (say it as anotherFunc) as a parameter and the callback function executed inside the anotherFunc. A callback function is also known as callback pattern.</font>
+    </div>
+
+    <div>
+      <font color="#333333">Common callback code you might be seeing in JQuery. </font>
+    </div>
+	
+    <div class="code-section">
+
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #CC3300">&quot;buttonId&quot;</span>).click(<span style="color: #006699; font-weight: bold">function</span>(){
+	alert(<span style="color: #CC3300">&quot;Button is clicked&quot;</span>);
+});
+</pre></div>
+
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">As you can see we are passing function inside click function and this function get executed by click method on click of button. The above example is typical use of callback function and widely being used in JQuery.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">The typical example of callback is when we do Ajax call to server with method $.get() or $.post() method.</font>
+    </div>
+  </div>
+
+  <div class=" " style="font-family: Meiryo UI;">
+    &nbsp;
+  </div>
+
+
+  <div align="center" class=" " style="font-family: Meiryo UI;">
+    &nbsp;
+  </div>
+
+  <div class="code-section" style="font-family: Meiryo UI;">
+ 
+ <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> $(<span style="color: #CC3300">&quot;buttonId&quot;</span>).click(<span style="color: #006699; font-weight: bold">function</span>(){
+    $.get(<span style="color: #CC3300">&quot;any.jsp&quot;</span>, <span style="color: #006699; font-weight: bold">function</span>(data, status){
+       <span style="color: #0099FF; font-style: italic">// The function(data, status) is callback function here.</span>
+        alert(<span style="color: #CC3300">&quot;Data: &quot;</span> <span style="color: #555555">+</span> data <span style="color: #555555">+</span> <span style="color: #CC3300">&quot;\nStatus: &quot;</span> <span style="color: #555555">+</span> status);
+    });
+});
+<span style="color: #0099FF; font-style: italic">//Here is the Syntax for doing post call.</span>
+
+$.post(URL,data,callback);
+</pre></div>
+
+  </div>
+
+   <div class="panel panel-info code-section">
+    <div class="panel-heading">
+      Creating Callback Funtion.
+    </div>
+
+    <div class="code-section panel-body">
+		<ul class="nav nav-tabs">
+			<li><a href="#js-callback1" data-toggle="tab">CallbackExample 1</a></li>
+			<li><a href="#js-callback2" data-toggle="tab">CallbackExample 2</a></li>
+      </ul>
+	  <div class="tab-content">
+        <div id="js-callback1" class="tab-pane fade in active">
+          <div class="code-section">
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #009999">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;html&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;head&gt;</span>
+      
+      <span style="color: #330099; font-weight: bold">&lt;title&gt;</span>Callback function<span style="color: #330099; font-weight: bold">&lt;/title&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;/head&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;body&gt;</span>
+      <span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">id=</span><span style="color: #CC3300">&quot;divAdd&quot;</span> <span style="color: #330099">onclick=</span><span style="color: #CC3300">&quot;getInformation.add(10, 10);&quot;</span> 
+	      <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;height:10px; display:block;&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>; Add Click <span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;/body&gt;</span>   
+
+<span style="color: #330099; font-weight: bold">&lt;script&gt;</span>
+<span style="color: #006699; font-weight: bold">var</span> getInformation <span style="color: #555555">=</span> {
+	<span style="color: #CC3300">&quot;names&quot;</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span> () {
+		alert(<span style="color: #CC3300">&quot;get the names&quot;</span>);
+	},
+	<span style="color: #CC3300">&quot;add&quot;</span> <span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span>(x, y){
+		alert(x<span style="color: #555555">+</span>y);
+	}
+};
+
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">names and add methods are being used as a callback function.</span>
+<span style="color: #0099FF; font-style: italic">names function will get called at the time of page load </span>
+<span style="color: #0099FF; font-style: italic">and add function called on click of the div element.</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+
+<span style="color: #336666">window</span>.addEventListener(<span style="color: #CC3300">&quot;load&quot;</span>, getInformation.names, <span style="color: #006699; font-weight: bold">false</span>);
+
+<span style="color: #330099; font-weight: bold">&lt;/script&gt;</span>
+
+<span style="color: #330099; font-weight: bold">&lt;/html&gt;</span>
+</pre></div>
+
+		  </div>
+        </div>
+		<div id="js-callback2" class="tab-pane fade in">
+		<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">// Let&#39;s define an object with properties fullName and a method setFullName.</span>
+<span style="color: #0099FF; font-style: italic">// We will later pass the method as a callback function to another function.</span>
+<span style="color: #006699; font-weight: bold">var</span> formatName <span style="color: #555555">=</span> {
+    fullName<span style="color: #555555">:</span> <span style="color: #CC3300">&quot;&quot;</span>,
+    <span style="color: #0099FF; font-style: italic">// set fullName by appending firstName and lastName.</span>
+    setFullName<span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">function</span> (firstName, lastName)  {
+        <span style="color: #0099FF; font-style: italic">// this refers to the fullName property in this object?</span>
+      <span style="color: #006699; font-weight: bold">this</span>.fullName <span style="color: #555555">=</span> firstName <span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span> <span style="color: #555555">+</span> lastName;
+    }
+}
+
+<span style="color: #006699; font-weight: bold">function</span> getNameInfo(firstName, lastName, callback, callbackObj)  {
+	<span style="color: #0099FF; font-style: italic">// Do your application logic here.</span>
+  
+<span style="color: #0099FF; font-style: italic">//Here we are doing a call to the function being passed </span>
+<span style="color: #0099FF; font-style: italic">//as a parameter. Also it&#39;s a good practice to always check </span>
+<span style="color: #0099FF; font-style: italic">//for type before calling any callback method.</span>
+	 <span style="color: #006699; font-weight: bold">if</span> (<span style="color: #006699; font-weight: bold">typeof</span> callback <span style="color: #555555">===</span> <span style="color: #CC3300">&quot;function&quot;</span>) 
+		callback.apply(callbackObj, [firstName, lastName]);
+}
+
+getNameInfo(<span style="color: #CC3300">&quot;Deepak&quot;</span>, <span style="color: #CC3300">&quot;Singh&quot;</span>, formatName.setFullName, formatName);
+
+console.log (formatName.fullName);<span style="color: #0099FF; font-style: italic">// Deepak Singh</span>
+</pre></div>
+
+        </div>
+      </div>
+	</div>
+	
+  </div>
+  
+   <div>
+      <font color="#333333">Hope this is useful and have given you an understanding of callback function.</font>
+    </div>
+
+  <div class=" " style="font-family: Meiryo UI;">
+    &nbsp;
+  </div>
+
+
+  <div align="center" class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+</body>
+</html>

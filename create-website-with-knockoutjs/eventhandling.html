@@ -1,0 +1,14 @@
+<script type='text/javascript' src='model/clickcounter/clickcountermodel.js'></script>
+<div id="container-counter">
+	<div class="title"> Event Handling Example!</div>
+	<div class="declarative-bind" id="click-counter">
+		<div> 
+			You have clicked <span data-bind="text: numberOfClicks"></span>
+		</div>
+		<button data-bind="click: registerClick, disable:hasClickedToManyTimes">Click</button>
+		<div data-bind="visible:hasClickedToManyTimes">
+			That's too many clicks! Please stop..
+			<button data-bind="click:resetClicks">Reset Clicks</button>
+		</div>
+	</div>
+</div>

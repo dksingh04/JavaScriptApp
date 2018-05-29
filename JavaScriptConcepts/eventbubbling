@@ -1,0 +1,5 @@
+<ul onclick="alert('UL element click event got fired, even you are clicking on child element')">
+	<li> List 1 </li>
+	<li> List 2 </li>
+	<li> List 3 </li>
+</ul>

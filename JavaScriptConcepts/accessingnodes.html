@@ -1,0 +1,16 @@
+<ul id="nav">
+<li><a href="/" id="home">Home</a></li>
+<li><a href="/about" id="about">About Us</a></li>
+<li><a href="/contact" id="contact">Contact Us</a></li>
+</ul>
+
+<script type="text/javascript">
+	document.getElementById("about").parentNode.setAttribute("class", "active");
+	//document.getElementById("about").parentNode.previousSibling.setAttribute("class","previous");
+	//document.getElementById("about").parentNode.nextSibling.setAttribute("class", "next");
+
+	// travel to the first node and add the class
+	document.getElementById("nav").firstChild.setAttribute("class", "first");
+// travel to the last node and add a class
+	document.getElementById("nav").lastChild.setAttribute("class", "last");
+</script>

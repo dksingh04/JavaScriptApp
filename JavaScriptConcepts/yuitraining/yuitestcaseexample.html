@@ -1,0 +1,161 @@
+<html>
+<head>
+	<title>Writing YUI Test cases in javascript by example</title>
+</head>
+<body>
+	<div id="log" class="yui3-skin-sam"></div>
+
+	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+	<script>
+// Create a new YUI instance and populate it with the required modules.
+
+	function sortArray(array) {
+		//alert("Array "+array);
+		//alert(array instanceof Array);
+	    if (array instanceof Array){
+	        array.sort();
+	    } else {
+	        throw new TypeError("Expected an array");
+	    }
+	}
+
+	YUI().use('test', 'test-console', function (Y) {
+    	 
+    	var value = 5;
+    	var flag = true;
+	    var testCase = new Y.Test.Case({
+
+	    	name: "TestCase Name",
+
+	    	_should: {
+	    	       ignore: {
+	    	           testName: true //ignore this test
+	    	       },
+	    	       error: {
+	    	           testSortArray: new TypeError("Expected an array") //this test should throw an error
+	    	       }
+	    	   },
+
+	    	setUp : function () {
+	    		//alert("Setup method ");
+	       	 	this.data = { name : "Deepak", age : 32 };
+	    	},
+
+	    	tearDown : function () {
+	    		//alert("Tear Down");
+	        	delete this.data;
+	    	},
+
+	    //traditional test names
+		    testNameWhenIncorrectName : function () {
+		        
+		        Y.Assert.areEqual("Madhu", this.data.name, "Name should be 'Deepak'");
+		    },
+
+		    testAgeWhenCorrectAge : function () {
+		       
+		         Y.Assert.areEqual(32, this.data.age, "Age should be except '32'");
+		    },
+
+		    testName : function (){
+		    	alert("testName Ignored");
+		    },
+
+		    testSortArray: function () {
+        		sortArray(12);  //this should throw an error
+    		},
+    		// Use of Assert
+    		testUsingAsserts : function () {
+        		Y.assert(value == 5, "The value should be five.");
+        		Y.assert(flag, "Flag should be true.");
+    		},
+    		// Equality Assertion
+    		testEqualityAsserts : function () {
+
+		        Y.Assert.areEqual(5, 5);     //passes
+		        Y.Assert.areEqual(5, "5");     //passes
+		        Y.Assert.areNotEqual(5, 6);  //passes
+		        Y.Assert.areEqual(5, 6, "Five was expected."); //fails
+		    },
+			// Sameness Assertions
+		     testSamenessAsserts : function () {
+		        Y.Assert.areSame(5, 5);      //passes
+		        Y.Assert.areSame(5, "5");    //fails
+		        Y.Assert.areNotSame(5, 6);   //passes
+		        Y.Assert.areNotSame(5, "5"); //passes
+		        Y.Assert.areSame(5, 6, "Five was expected."); //fails
+		    },
+
+		    // Data Type Assertions
+		    testDataTypeAsserts : function () {
+		        Y.Assert.isString("Hello world");     //passes
+		        Y.Assert.isNumber(1);                 //passes
+		        Y.Assert.isArray([]);                 //passes
+		        Y.Assert.isObject([]);                //passes
+		        Y.Assert.isFunction(function(){});    //passes
+		        Y.Assert.isBoolean(true);             //passes
+		        Y.Assert.isObject(function(){});      //passes
+
+		        Y.Assert.isNumber("1", "Value should be a number.");  //fails
+		        Y.Assert.isString(1, "Value should be a string.");    //fails
+		    },
+		    // You can aslo do TypeOf Test as well by using isTypeOf function.
+		    testTypeOf : function () {
+
+		        Y.Assert.isTypeOf("string", "Hello world");   //passes
+		        Y.Assert.isTypeOf("number", 1);               //passes
+		        Y.Assert.isTypeOf("boolean", true);           //passes
+		        Y.Assert.isTypeOf("number", 1.5);             //passes
+		        Y.Assert.isTypeOf("function", function(){});  //passes
+		        Y.Assert.isTypeOf("object", {});              //passes
+		        Y.Assert.isTypeOf("undefined", this.blah);    //passes
+
+		        Y.Assert.isTypeOf("number", "Hello world", "Value should be a number."); //fails
+
+		    },
+
+		    //  If you don't want to test data and want to check object type you can use isInstanceOf function.
+		    testInstanceOf : function () {
+		        Y.Assert.isInstanceOf(Object, {});    //passes
+		        Y.Assert.isInstanceOf(Array, []);     //passes
+		        Y.Assert.isInstanceOf(Object, []);     //passes
+		        Y.Assert.isInstanceOf(Function, function(){});  //passes
+		        Y.Assert.isInstanceOf(Object, function(){});  //passes
+
+		        Y.Assert.isTypeOf(Array, {}, "Value should be an array."); //fails
+
+		    },
+
+		    // Special Value Assertion: There are special values in javascript, which may occur in your code and these special values are 'true, false, null, NaN and undefined'
+		    testSpecialValues : function () {
+		        Y.Assert.isFalse(false);      //passes
+		        Y.Assert.isTrue(true);        //passes
+		        Y.Assert.isNaN(NaN);          //passes
+		        Y.Assert.isNaN(0 / 0);        //passes
+		        Y.Assert.isNotNaN(5);         //passes
+		        Y.Assert.isNull(null);        //passes
+		        Y.Assert.isNotNull(undefined);    //passes
+		        Y.Assert.isUndefined(undefined);  //passes
+		        Y.Assert.isNotUndefined(null);    //passes
+
+		      //  Y.Assert.isUndefined({}, "Value should be undefined."); //fails
+
+		    },
+
+		    // You can do Forceful failure as well
+		     testForceFail : function () {
+		        Y.Assert.fail("I decided this should fail.");
+		    },
+
+
+		});
+	    new Y.Test.Console().render('#log');
+		Y.Test.Runner.add(testCase);
+		Y.Test.Runner.run();
+	});
+
+
+
+</script>
+</body>
+</html>

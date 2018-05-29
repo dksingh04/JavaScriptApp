@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Object Oriented Programming in JavaScript</title>
+  <meta name="Inheritance" content="Object Oriented Programming in JavaScript">
+  <meta name="Encapsulation" content="Object Oriented Programming in JavaScript">
+  <meta name="Abstraction" content="Object Oriented Programming in JavaScript">
+  <meta name="Polymorphism" content="Object Oriented Programming in JavaScript">
+  <meta name="distribution" content="Global">
+  <meta name="Robots" content="Index,Follow">
+  <meta name="country" content="India">
+  <meta content="en_US" property="og:locale">
+  <meta content="article" property="og:type">
+  <meta content="Object Oriented Programming in JavaScript" property="og:title">
+  <meta content="JavaScript (Object Oriented Programming in JavaScript)" property="og:description">
+  <meta content="http://dklearnings.com" property="og:url">
+  <meta content="www.dklearnings.com" property="og:site_name">
+  <link href="http://dklearnings.com/" rel="alternate" hreflang="en">
+  <link href="https://plus.google.com/u/0/103080601787482816607" rel="author">
+  <link href="https://plus.google.com/u/0/103080601787482816607" rel="publisher">
+</head>
+
+<body>
+  <p align="center">&nbsp;</p>
+
+  <p align="center"><font color="#333333" face="Verdana" size="5"><strong>Object Oriented Programming in JavaScript</strong></font></p>
+
+  <p align="center"><font face="Verdana">&nbsp;</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana">So here we are going to learn how we can do Object oriented programming in JavaScript. We can Implement Inheritance, Encapsulation,
+  Abstraction and Polymorphism concept in JavaScript.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana">Whenever we talk about Object oriented programming then concepts of "Class, Object, Property, Method, Constructor" etc are added
+  by default and you must understand all of them.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana">I am starting by assuming that you guys are aware of all above concepts. If not then please go through them, then it would be easier for
+  you to understand this article. Also you must have basic understanding of JavaScript (e.g. variable, functions etc.).</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana">To understand Class, Method, Object, Constructor and Property Please refer my article <a href="#" id="back-to-objcre">Object Creation in JavaScript </a>.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana"><strong>Class:</strong> In JavaScript there is no keyword 'class' like you found in other languages such as C++ or Java. In JavaScript
+  defining a class is same as defining function.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana">eg. MyClass = function(){};</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana"><strong>Note**:</strong> ECMA 6 onward keywords like 'class, extends etc.' got added in JavaScript.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana"><strong>Object:</strong> Instance of Class is an Object. so when we say "var myObj = new MyClass();" then myObj is Object of MyClass.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana"><strong>Method:</strong> Any function which is part of class is method.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana"><strong>Constructor:</strong> In JavaScript there is no seprate function to create constructor like we do in C++ or Java. In JavaScript the
+  function serves itself as the Constructor of object. So in JavaScript there is no need to define constructor explicitly.</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana"><strong>Property:</strong> any attributes you create as part of the function or so called Class are Property of that class. </font></p>
+
+  <p align="left">&nbsp;</p>
+
+  <p align="left"><font color="#666666" face="Verdana">Let's understand Class, Object, Property, Method and Constructor by example.</font></p>
+
+  <p align="left">&nbsp;</p>
+
+  <div class="code-section">
+   
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">function</span> Person(){
+    <span style="color: #0099FF; font-style: italic">//Property of Person class</span>
+     <span style="color: #006699; font-weight: bold">var</span> firstName; 
+     <span style="color: #006699; font-weight: bold">var</span> lastName;
+   <span style="color: #0099FF; font-style: italic">//Method of class Person</span>
+	<span style="color: #006699; font-weight: bold">function</span> showDetails(){
+        console.log(firstName<span style="color: #555555">+</span><span style="color: #CC3300">&quot; &quot;</span><span style="color: #555555">+</span>lastName);
+    }
+}
+<span style="color: #0099FF; font-style: italic">// Instantiation of Person Class. Also Person is used as constructor.</span>
+<span style="color: #006699; font-weight: bold">var</span> p <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">new</span> Person();
+<span style="color: #0099FF; font-style: italic">// p is an object of person class and calling method showDetails.</span>
+p.showDetails(<span style="color: #CC3300">&quot;Deepak&quot;</span>, <span style="color: #CC3300">&quot;Singh&quot;</span>); <span style="color: #0099FF; font-style: italic">// Deepak Singh</span>
+</pre></div>
+
+
+  </div>
+
+  <p align="left">&nbsp;&nbsp;</p>
+
+  <p align="center"><strong>&nbsp;<font color="#333333" face="Verdana" size="4">Inheritance</font></strong></p>
+
+  <p align="left"><font color="#666666" face="Verdana">JavaScript is prototype based programming language. Prototype-based programming is an OOP model that doesn't use classes, but rather it first
+  accomplishes the behavior of any class and then reuses it (equivalent to inheritance in class-based languages) by decorating (or expanding upon) existing prototype objects. (Also called classless,
+  prototype-oriented, or instance-based programming.)</font></p>
+
+  <p align="left"><font color="#666666" face="Verdana">JavaScript only support single Inheritance. Let's understand this by example.</font></p>
+
+  <p align="left">&nbsp;</p>
+
+  <div class="code-section">
+
+ <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">function</span> Shape(name, color) {
+  <span style="color: #006699; font-weight: bold">this</span>.name <span style="color: #555555">=</span> name;
+  <span style="color: #006699; font-weight: bold">this</span>.color <span style="color: #555555">=</span> color;
+  
+  <span style="color: #006699; font-weight: bold">return</span> <span style="color: #006699; font-weight: bold">this</span>;
+}
+
+  Shape.prototype.displayShape <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span> (){
+      console.log(<span style="color: #CC3300">&quot;Name : &quot;</span><span style="color: #555555">+</span><span style="color: #006699; font-weight: bold">this</span>.name<span style="color: #555555">+</span><span style="color: #CC3300">&quot; color: &quot;</span><span style="color: #555555">+</span><span style="color: #006699; font-weight: bold">this</span>.color);
+  }
+
+<span style="color: #006699; font-weight: bold">function</span> Rectangle(name, color) {
+  <span style="color: #0099FF; font-style: italic">// Call the parent constructor, making sure (using Function#call)</span>
+  <span style="color: #0099FF; font-style: italic">// that &quot;this&quot; is set correctly during the call</span>
+  Shape.call(<span style="color: #006699; font-weight: bold">this</span>, name, color);
+  <span style="color: #0099FF; font-style: italic">// Added extra property to different shapes.</span>
+  <span style="color: #006699; font-weight: bold">this</span>.sides <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;4&#39;</span>;
+}
+<span style="color: #0099FF; font-style: italic">// Create a Rectangle.prototype object that inherits from Shape.prototype.</span>
+<span style="color: #0099FF; font-style: italic">// Note: A common error here is to use &quot;new Shape()&quot; to create the</span>
+<span style="color: #0099FF; font-style: italic">// Rectangle.prototype. The correct place to call Shape is above, where we call </span>
+<span style="color: #0099FF; font-style: italic">// it from Rectangle. Similarly other shapes (Triangle and Circle) class </span>
+<span style="color: #0099FF; font-style: italic">// created and Inherited from Shape class.</span>
+
+Rectangle.prototype <span style="color: #555555">=</span> <span style="color: #336666">Object</span>.create(Shape.prototype);
+Rectangle.prototype.constructor <span style="color: #555555">=</span> Rectangle; <span style="color: #0099FF; font-style: italic">// Reset the constructor from Shape to Rectangle</span>
+Rectangle.prototype.changeColor <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span> (colr){
+  <span style="color: #006699; font-weight: bold">this</span>.color <span style="color: #555555">=</span> colr;
+  console.log(<span style="color: #CC3300">&quot;Color Changed for &quot;</span><span style="color: #555555">+</span><span style="color: #006699; font-weight: bold">this</span>.name);
+}
+
+<span style="color: #006699; font-weight: bold">function</span> Triangle(name, color) {
+  Shape.call(<span style="color: #006699; font-weight: bold">this</span>, name, color);
+  <span style="color: #006699; font-weight: bold">this</span>.sides <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;3&#39;</span>;
+}
+
+Triangle.prototype <span style="color: #555555">=</span> <span style="color: #336666">Object</span>.create(Shape.prototype);
+Triangle.prototype.constructor <span style="color: #555555">=</span> Triangle; <span style="color: #0099FF; font-style: italic">// Reset the constructor from Shape to Triangle</span>
+Triangle.prototype.changeColor <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span> (colr){
+  <span style="color: #006699; font-weight: bold">this</span>.color <span style="color: #555555">=</span> colr;
+  console.log(<span style="color: #CC3300">&quot;Color Changed for &quot;</span><span style="color: #555555">+</span><span style="color: #006699; font-weight: bold">this</span>.name);
+}
+
+<span style="color: #006699; font-weight: bold">function</span> Circle(name, color) {
+  Shape.call(<span style="color: #006699; font-weight: bold">this</span>, name, color);
+  <span style="color: #006699; font-weight: bold">this</span>.sides <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;0&#39;</span>;
+}
+
+Circle.prototype <span style="color: #555555">=</span> <span style="color: #336666">Object</span>.create(Shape.prototype);
+Circle.prototype.constructor <span style="color: #555555">=</span> Circle; <span style="color: #0099FF; font-style: italic">// Reset the constructor from Shape to Circle</span>
+Circle.prototype.changeColor <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span> (colr){
+  <span style="color: #006699; font-weight: bold">this</span>.color <span style="color: #555555">=</span> colr;
+  console.log(<span style="color: #CC3300">&quot;Color Changed for &quot;</span><span style="color: #555555">+</span><span style="color: #006699; font-weight: bold">this</span>.name);
+}
+
+<span style="color: #006699; font-weight: bold">var</span> rect <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">new</span> Rectangle(<span style="color: #CC3300">&#39;Rectangle&#39;</span>, <span style="color: #CC3300">&#39;red&#39;</span>);
+<span style="color: #006699; font-weight: bold">var</span> tri <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">new</span> Triangle(<span style="color: #CC3300">&#39;Triangle&#39;</span>, <span style="color: #CC3300">&#39;Blue&#39;</span>);
+<span style="color: #006699; font-weight: bold">var</span> cir <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">new</span> Circle(<span style="color: #CC3300">&#39;Circle&#39;</span>, <span style="color: #CC3300">&#39;Green&#39;</span>);
+
+rect.displayShape(); <span style="color: #0099FF; font-style: italic">//Name : Rectangle color: red</span>
+tri.displayShape(); <span style="color: #0099FF; font-style: italic">// Name : Triangle color: Blue</span>
+cir.displayShape();<span style="color: #0099FF; font-style: italic">// Name : Circle color: Green</span>
+
+rect.changeColor(<span style="color: #CC3300">&quot;blue&quot;</span>) <span style="color: #0099FF; font-style: italic">//Color Changed for Rectangle</span>
+rect.displayShape(); <span style="color: #0099FF; font-style: italic">//Name : Rectangle color: blue</span>
+
+tri.changeColor(<span style="color: #CC3300">&quot;Green&quot;</span>) <span style="color: #0099FF; font-style: italic">//Color Changed for Triangle</span>
+tri.displayShape(); <span style="color: #0099FF; font-style: italic">//Name : Triangle color: Green</span>
+
+cir.changeColor(<span style="color: #CC3300">&quot;Red&quot;</span>) <span style="color: #0099FF; font-style: italic">//Color Changed for Circle</span>
+cir.displayShape(); <span style="color: #0099FF; font-style: italic">//Name : Circle color: Red</span>
+</pre></div>
+
+  </div>
+
+  <p align="center"><font face="Verdana">&nbsp;&nbsp; <font size="4"><font color="#333333"><strong>Encapsulation</strong></font></font></font></p>
+
+  <p align="left"><font color="#666666"><font face="Verdana">If you see from the above example <strong>displayShape</strong> method which is part of Shape class is being used by other classes (Rectangle, Triangle and
+  Circle) without knowing the</font> <font face="Verdana">implementation details of displayShape method or defining this method it explicitly in their classes. This is an implementation of Encapsulation. <br><br>Information hiding is
+  common feature of Encapsulation, that also you can implement in JavaScript. You can refer my article <a href="#" id="back-to-closure"> Closure</a></font> <font face="Verdana">concept.
+  Encapsulation.</font></font></p>
+
+  <p align="center"><font color="#333333" face="Verdana" size="4"><strong>Abstraction</strong></font></p>
+
+  <p align="left"><font color="#666666" face="Verdana" >Abstraction is basically a concept/mechanism help in solving real problem using&nbsp;Inheritance, Composition
+  or&nbsp;Encapsulation.</font></p>
+
+  <p align="center"><strong><font color="#333333" face="Verdana" size="4">Polymorphism</font></strong></p>
+
+  <p align="left">&nbsp;<font color="#666666" face="Verdana">If you see in the above example <strong>changeColor</strong> method with same name is being used by all the classes. So this is the
+  example of polymorphism.</font></p>
+
+  <div>
+    &nbsp;
+  </div>
+
+  <div>
+    <font color="#666666"><font face="Verdana">Hope you have got fare understanding of Object Oriented Programming concept in JavaScript.</font></font>
+  </div>
+
+  <div>
+    <font color="#666666">&nbsp;</font>
+  </div>
+
+  <div>
+    <font color="#666666" face="Verdana">Keep Reading and Keep Learning.</font>
+  </div>
+<div>
+    &nbsp;
+  </div>
+
+  <p align="left"><font color="#666666" face="Verdana">Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank"> MSDN Introduction to Object Oriented Programming </a></font></p>
+  <div>
+    &nbsp;
+  </div>
+
+  <div>
+    &nbsp;
+  </div>
+
+</body>
+
+<script>
+	$("#back-to-objcre").click(
+		function(e){
+			$("#container-example").load("views/javascript/obj-creation.html"); 
+		}
+	);
+	
+	$("#back-to-closure").click(
+		function(e){
+			$("#container-example").load("views/javascript/closure.html"); 
+		}
+	);
+	
+	
+</script>
+</html>

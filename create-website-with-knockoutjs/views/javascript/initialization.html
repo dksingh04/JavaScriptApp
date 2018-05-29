@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Initialization of variable and function</title>
+  <meta name="JavaScript" content="Initalization of variable and function">
+  <meta name="javascript" content="Initalization of variable and function">
+  <meta name="html" content="Initalization of variable and function">
+  <meta name="css" content="Initalization of variable and function">
+</head>
+
+<body>
+  <div class=" ">
+    <div>
+      <h2><strong>Understanding Initialization concept in JavaScript</strong></h2>
+    </div>
+  </div>
+
+  <div class=" " style="padding-left: 10px; font-family: verdana;">
+    <div>
+      &nbsp;
+    </div>
+	<div class=" ">
+    <div>
+      <h4><strong>Initialization of functions and variables</strong></h2>
+    </div>
+  </div>
+	<div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Let's understand, how initialization mechanism of functions and variables in JavaScript works.</font>
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">There is a concept of LexicalEnvironment and in JavaScript all local variables and functions are properties of this object. to know more about lexical environment refer link <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)#Lexical_environment" target="_blank"> LexicalEnvironment </a> and <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scope_vs._dynamic_scope" target="_blank"> Lexical scope vs Dynamic Scope</a>.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+     
+	 <div>
+      <font color="#333333">In short LexicalEnviornment is a set of all binding of variables and functions of the program in the scope. When JavaScript program start it search all the variable lexically and put them in that scope and then it get resolved later runtime by referencing this variable. You can think of this as an object which contains references of all your variable and functions when your program start.</font>
+    </div>
+	
+	
+	<div>
+      &nbsp;
+    </div>
+     
+	 <div>
+      <font color="#333333">Let's understand the initialization step by step from example.</font>
+    </div>
+	
+    <div class="code-section">
+     
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> a <span style="color: #555555">=</span> <span style="color: #FF6600">5</span>;
+
+<span style="color: #006699; font-weight: bold">function</span> normalFun(arg){alert(arg);}
+  <span style="color: #006699; font-weight: bold">var</span> refFun <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span>(arg){
+  alert(arg);
+}
+</pre></div>
+
+	 
+    </div>
+
+    <div>
+      &nbsp;
+    </div>
+
+    <div>
+      <font color="#333333">Step 1: Functional declaration initialized before the code start executing. So prior to the first line of code we have function reference available in <b><i>'window'</i></b> scope. <i> i.e. window = {normalFun:function}</i> and that's why we are able to call normalFun() before it's declaration.</font>
+    </div>
+	<div class="code-section">
+     
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">/** </span>
+<span style="color: #0099FF; font-style: italic">Function declaration added to browser window object </span>
+<span style="color: #0099FF; font-style: italic">even before the first line of code start executing.</span>
+<span style="color: #0099FF; font-style: italic"> window = {normalFun:function}</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+<span style="color: #006699; font-weight: bold">var</span> a <span style="color: #555555">=</span> <span style="color: #FF6600">5</span>;
+
+<span style="color: #006699; font-weight: bold">function</span> normalFun(arg){alert(arg);} <span style="color: #0099FF; font-style: italic">// Functional Declaration</span>
+  <span style="color: #006699; font-weight: bold">var</span> refFun <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span>(arg){
+  alert(arg);
+}
+</pre></div>
+
+
+    </div>
+    <div>
+      &nbsp;
+    </div>
+	<div>
+      <font color="#333333">Step 2: In Second step the interpreter start scanning for var declarations and creates <b><i>'window'</i></b> properties. Please make a note that the assignment is not happening at this stage. All variables are <b><i>'undefined'</i></b> at this stage. So, in second steps code will look like below.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+
+	<div class="code-section">
+
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">/** 1. Function declaration added to browser window object even before </span>
+<span style="color: #0099FF; font-style: italic">	the first line of code start executing.</span>
+<span style="color: #0099FF; font-style: italic"> window = {normalFun:function}</span>
+<span style="color: #0099FF; font-style: italic"> 2. Now variables with var are added to window object.</span>
+<span style="color: #0099FF; font-style: italic"> window = {normalFun:function, a:undefined, refFun: undefined};</span>
+<span style="color: #0099FF; font-style: italic"> </span>
+<span style="color: #0099FF; font-style: italic"> refFun is a functional reference but interpreter doesn&#39;t care, </span>
+<span style="color: #0099FF; font-style: italic"> it treats it as a variable and add it to window object. </span>
+<span style="color: #0099FF; font-style: italic"> */</span>
+<span style="color: #006699; font-weight: bold">var</span> a <span style="color: #555555">=</span> <span style="color: #FF6600">5</span>;
+
+<span style="color: #006699; font-weight: bold">function</span> normalFun(arg){alert(arg);} <span style="color: #0099FF; font-style: italic">// Functional Declaration</span>
+  <span style="color: #006699; font-weight: bold">var</span> refFun <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span>(arg){
+  alert(arg);
+}
+</pre></div>
+
+ 
+</div>
+   <div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+   
+   <div>
+      <font color="#333333">So from the above code this is what we understood. <br><br>
+		<ul>
+			<li> Functional declarations are ready to use functions i.e you are allowed to call a function before its declaration.</li>
+			<li> Variables start as undefined.</li>
+			<li> All assignments happen at the time of code execution when execution reaches to them.</li>
+		</ul>
+		<br>
+		
+	<b>Note:** </b>Since variables and functions are part of window object and because of that it is impossible to have the variable and function with same name.
+	  </font>
+    </div>
+
+  
+  <div>
+      &nbsp;
+    </div>
+	<div>
+      <font color="#333333">Step 3: Code start executing. So let's see what will be the output, when we access variables and functions before their declaration.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+	<div class="code-section">
+	
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">alert(a); <span style="color: #0099FF; font-style: italic">// undefined, now you know why?</span>
+alert(normalFun); <span style="color: #0099FF; font-style: italic">// function, because it&#39;s a function.</span>
+alert(refFun); <span style="color: #0099FF; font-style: italic">// undefined. because assignment is not yet applied.</span>
+<span style="color: #006699; font-weight: bold">var</span> a <span style="color: #555555">=</span> <span style="color: #FF6600">5</span>;
+
+<span style="color: #006699; font-weight: bold">function</span> normalFun(arg){alert(arg);} <span style="color: #0099FF; font-style: italic">// Functional Declaration</span>
+  <span style="color: #006699; font-weight: bold">var</span> refFun <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span>(arg){
+  alert(arg);
+}
+</pre></div>
+
+
+</div>
+ <div>
+      &nbsp;
+ </div>
+	<div>
+      <font color="#333333">Step 4: So let's see what will be the output, when we access variables and functions after declaration.</font>
+    </div>
+	
+	<div>
+      &nbsp;
+    </div>
+	<div class="code-section">
+	
+
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> a <span style="color: #555555">=</span> <span style="color: #FF6600">5</span>;
+<span style="color: #006699; font-weight: bold">function</span> normalFun(arg){alert(arg);} <span style="color: #0099FF; font-style: italic">// Functional Declaration</span>
+ <span style="color: #006699; font-weight: bold">var</span> refFun <span style="color: #555555">=</span> <span style="color: #006699; font-weight: bold">function</span>(arg){
+ alert(arg);
+}
+
+alert(a); <span style="color: #0099FF; font-style: italic">// 5</span>
+alert(normalFun); <span style="color: #0099FF; font-style: italic">// function</span>
+alert(refFun); <span style="color: #0099FF; font-style: italic">// function</span>
+</pre></div>
+
+
+</div>
+
+
+<div>
+      &nbsp;
+ </div>
+<div>
+  <font color="#333333">Variables declared without var keywords got added to window object but after the interpreter executed that part of code. For example.</font>
+</div>
+
+<div>
+  &nbsp;
+</div>
+
+
+<div class="code-section">
+<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> <span style="color: #006699; font-weight: bold">if</span> (<span style="color: #CC3300">&quot;b&quot;</span> <span style="color: #006699; font-weight: bold">in</span> <span style="color: #336666">window</span>) <span style="color: #0099FF; font-style: italic">//return false, there is no b in window object;</span>
+ alert(b); <span style="color: #006699; font-weight: bold">throw</span> an error.
+ b <span style="color: #555555">=</span> <span style="color: #FF6600">10</span>;
+ <span style="color: #0099FF; font-style: italic">// But after the assignment variable &#39;b&#39; will become regular variable of window object.</span>
+</pre></div>
+
+</div>
+
+   <div>
+      &nbsp;
+    </div>
+	<div class=" ">
+    <div>
+      <h4><strong>Functional variables</strong></h2>
+    </div>
+  </div>
+	<div>
+      &nbsp;
+    </div>
+	
+  <div>
+      <font color="#333333">Step 1. When function runs, every function call create new LexicalEnvironment and populated with arguments, variables and nested functions. Let's understand this by example.</font>
+  </div>
+<div>
+      &nbsp;
+</div>
+
+<div class="code-section">	
+ <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic"> LexicalEnvironment = { makeFullName: function, firstName: &#39;Deepak&#39;,</span>
+<span style="color: #0099FF; font-style: italic"> lastName: &#39;Singh&#39;, nameIntro: undefined};</span>
+<span style="color: #0099FF; font-style: italic"> */</span>
+	<span style="color: #006699; font-weight: bold">function</span> showName(firstName, lastName){
+	<span style="color: #006699; font-weight: bold">var</span> nameIntro <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;Your Name is &quot;</span>;
+
+	<span style="color: #006699; font-weight: bold">function</span> makeFullName(){
+		<span style="color: #006699; font-weight: bold">return</span> nameIntro <span style="color: #555555">+</span> firstName <span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span> <span style="color: #555555">+</span> lastName;
+	}
+
+	<span style="color: #006699; font-weight: bold">return</span> makeFullName();
+}
+
+showName(<span style="color: #CC3300">&quot;Deepak&quot;</span>, <span style="color: #CC3300">&quot;Singh&quot;</span>); <span style="color: #0099FF; font-style: italic">// Your Name is Deepak Singh</span>
+</pre></div>
+
+
+</div>
+
+<div>
+   &nbsp;
+</div>
+	
+  <div>
+      <font color="#333333">Step 2. Then function code runs and assignments got executed. So this is how code will look like after the function code run.</font>
+  </div>
+  <div>
+   &nbsp;
+</div>
+  
+<div class="code-section">	
+ <!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">LexicalEnvironment = { makeFullName: function, firstName: &#39;Deepak&#39;, </span>
+<span style="color: #0099FF; font-style: italic">lastName: &#39;Singh&#39;, nameIntro: undefined};</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+<span style="color: #006699; font-weight: bold">function</span> showName(firstName, lastName){
+  <span style="color: #006699; font-weight: bold">var</span> nameIntro <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;Your Name is &quot;</span>;
+<span style="color: #0099FF; font-style: italic">/** </span>
+<span style="color: #0099FF; font-style: italic">LexicalEnvironment = { makeFullName: function, firstName: &#39;Deepak&#39;, </span>
+<span style="color: #0099FF; font-style: italic">lastName: &#39;Singh&#39;, nameIntro: &#39;Your Name is &#39;};</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+ <span style="color: #006699; font-weight: bold">function</span> makeFullName(){
+	<span style="color: #006699; font-weight: bold">return</span> nameIntro <span style="color: #555555">+</span> firstName <span style="color: #555555">+</span> <span style="color: #CC3300">&quot; &quot;</span> <span style="color: #555555">+</span> lastName;
+ }
+<span style="color: #0099FF; font-style: italic">/**</span>
+<span style="color: #0099FF; font-style: italic">LexicalEnvironment = { makeFullName: function, firstName: &#39;Deepak&#39;, </span>
+<span style="color: #0099FF; font-style: italic">lastName: &#39;Singh&#39;, nameIntro: &#39;Your Name is Deepak Singh&#39;};</span>
+<span style="color: #0099FF; font-style: italic">*/</span>
+
+	<span style="color: #006699; font-weight: bold">return</span> makeFullName();
+}
+
+showName(<span style="color: #CC3300">&quot;Deepak&quot;</span>, <span style="color: #CC3300">&quot;Singh&quot;</span>); <span style="color: #0099FF; font-style: italic">// Your Name is Deepak Singh</span>
+</pre></div>
+
+</div>
+  <div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+
+
+  <div align="center" class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+
+ 
+  
+   <div>
+      <font color="#333333">Hope this is useful and given you understanding of initialization concept in JavaScript.</font>
+    </div>
+	
+	<div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+	<div  class=" " style="font-family: verdana;">
+     Keep Reading and Keep learning.
+  </div>
+<div class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+
+  <div align="center" class=" " style="font-family: verdana;">
+    &nbsp;
+  </div>
+  
+ </div>
+</body>
+</html>

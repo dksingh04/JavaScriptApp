@@ -1,0 +1,1 @@
+To run the application open "buildstatus.html" inside Code Folder file on browser.

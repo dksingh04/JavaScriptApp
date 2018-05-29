@@ -1,0 +1,116 @@
+Closure is unlike a function and part of enclosing function which can access variable defined locally in outer function. And these captured local variables are accessible even when the function is invoked outside of their scope.
+
+So closures functions are like storage (it remembers enclosing variables value even when function is invoked outside of their scope) for enclosing variables and functions which you can access later by calling that function.
+
+Let's see the magic of Closure:
+
+Example 1:
+Simple Example of Closure.
+
+function showName(firstName){
+	var nameIntro = "Your Name is ";
+
+	return function makeFullName(lastName){
+		return nameIntro + firstName + " " + lastName;
+	}
+
+}
+
+//call to closure functions can be done in following ways.
+
+var  makeFullName = showName("Deepak"); //Since ShowName is returning reference to closure function.
+
+//alert(firstName);  you will get javascript error. since it is not accessible outside of the scope.
+alert(firstName); // undefined.
+
+// Now we are calling closure function by passing LastName and your closure function remember your firstName value.
+alert(makeFullName("Singh")); 
+
+alert(showName("Deepak")("Singh"));
+
+Example 2 (Not Closure):
+/** 
+	Don't get confused, It is not closure.
+	<b>makeFullName()</b> function is an inner function.
+*/
+function showName(firstName, lastName){
+	var nameIntro = "Your Name is ";
+
+	function makeFullName(){
+		return nameIntro + firstName + " " + lastName;
+	}
+	
+	return makeFullName();
+}
+
+// you will get JavaScript Error, if you try to access <b>"makeFullName()"</b>. 
+// <font color="red">ReferenceError: makeFullName name is not defined.</font>
+// Because it will act as a inner function and not accessible outside of the outer function.
+
+alert(makeFullName()); //<font color="red">ReferenceError: makeFullName name is not defined.</font>
+alert(showName("Deepak", "Singh")) // Your Name is Deepak Singh. This will work.
+
+Example 3:
+function doMathOperationOn(x){
+
+	return {
+		add : function(y){
+			return x+y;
+		},
+		subtract: function(y){
+			return x - y;
+		}
+
+	};
+}
+
+var mathOp = doMathOperationOn(10); // You got the reference to Outer function
+console.log(mathOp.add(2)); // 12 see it remembers the value of x is 10. Magic of closure:)
+console.log(mathOp.subtract(2)); // 8
+
+-- With closure you can write encapsulated code (i.e. OO Encapsulation you can apply in javascript). 
+
+We can write the example one code in Encapsulated form.
+
+function Person(){
+	 var firstName;
+	 var lastName;
+	return {
+		
+		 setFirstName: function(firstName){
+		 	this.firstName = firstName;
+		 },
+
+		 getFirstName: function(){
+		 	return this.firstName;
+		 },
+
+		 setLastName: function(lastName){
+		 	this.lastName = lastName;
+		 },
+		 getLastName : function(){
+		 	return this.lastName;
+		 },
+
+		 toString:function(){
+		 	return this.firstName+ " "+this.lastName;
+		 }
+	};
+}
+
+var p = new Person();
+
+//alert(firstName); <font color="red">ReferenceError: firstName is not defined</font>
+//alert(lastName); <font color="red">ReferenceError: lastName is not defined</font>
+
+p.setFirstName("Deepak");
+p.setLastName("Singh");
+
+alert(p.getFirstName()); // Deepak
+alert(p.getLastName()); // Singh
+alert(p.toString()); // Deepak Singh
+
+Hope you have got fare understanding of Closure concept in JavaScript.
+
+Keep Reading and Keep Learning.
+
